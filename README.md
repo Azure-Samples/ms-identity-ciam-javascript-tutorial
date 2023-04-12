@@ -27,7 +27,6 @@ extensions:
 * [Explore the sample](#explore-the-sample)
 * [Troubleshooting](#troubleshooting)
 * [About the code](#about-the-code)
-* [Next Steps](#next-steps)
 * [Contributing](#contributing)
 * [Learn More](#learn-more)
 
@@ -306,12 +305,6 @@ As shown above, the components that depend on whether the user is authenticated 
 ### ID token validation
 
 When you receive an [ID token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) directly from the IdP on a secure channel (e.g. HTTPS), such is the case with SPAs, there’s no need to validate it. If you were to do it, you would validate it by asking the same server that gave you the ID token to give you the keys needed to validate it, which renders it pointless, as if one is compromised so is the other.
-
-## Next Steps
-
-Learn how to:
-
-> * Enter next steps (samples, docs) for your platform here
 
 ## Contributing
 
