@@ -1,7 +1,7 @@
 ---
 page_type: sample
-name: React single-page application using MSAL React to authentication users against Customer Identity Access Management (CIAM)
-description: React single-page application using MSAL React to authentication users against Customer Identity Access Management (CIAM)
+name: React single-page application using MSAL React to authenticate users against Customer Identity Access Management (CIAM)
+description: React single-page application using MSAL React to authenticate users against Customer Identity Access Management (CIAM)
 languages:
  - javascript
 products:
@@ -17,7 +17,7 @@ extensions:
 - client: React SPA 
 ---
 
-# React single-page application using MSAL React to authentication users against Customer Identity Access Management (CIAM)
+# React single-page application using MSAL React to authenticate users against Customer Identity Access Management (CIAM)
 
 * [Overview](#overview)
 * [Scenario](#scenario)
@@ -170,7 +170,7 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 
 1. Open the `SPA\src\authConfig.js` file.
 1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `msal-react-spa` app copied from the Azure portal.
-1. Find the key `Enter_the_Tenant_Id_Here` and replace the existing value with your Azure AD tenant/directory ID.
+1. Find the key `Enter_the_Tenant_Name_Here` and replace the existing value with the name of your Azure AD tenant.
 
 ### Step 4: Running the sample
 
