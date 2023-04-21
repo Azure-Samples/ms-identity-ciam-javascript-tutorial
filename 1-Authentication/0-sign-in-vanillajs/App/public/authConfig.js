@@ -6,7 +6,7 @@
 const msalConfig = {
     auth: {
         clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
-        authority: 'https://Enter_the_Tenant_Name_Here.microsoftonline.com/', // Replace "Enter_the_Tenant_Name_Here" with your tenant name
+        authority: 'https://login.microsoftonline.com/Enter_Tenant_Id_here', // Replace "Enter_the_Tenant_Name_Here" with your tenant name
         redirectUri: '/', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.href e.g. http://localhost:3000/
         navigateToLoginRequestUrl: true, // If "true", will navigate back to the original request location before processing the auth code response.
     },
