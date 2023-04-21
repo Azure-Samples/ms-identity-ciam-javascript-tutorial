@@ -14,24 +14,14 @@ function welcomeUser(username) {
     welcomeDiv.innerHTML = `Welcome ${username}!`;
 }
 
-function updateTable() {
-    /**
-     * In order to obtain the ID Token in the cached obtained previously, you can initiate a
-     * silent token request by passing the current user's account and the scope "openid".
-     */
-    myMSALObj
-        .acquireTokenSilent({
-            account: myMSALObj.getAccountByUsername(username),
-            scopes: [],
-        })
-        .then((response) => {
-            tableDiv.classList.remove('d-none');
-            Object.keys(response.idTokenClaims).forEach((key) => {
-                let row = tableBody.insertRow(0);
-                let cell1 = row.insertCell(0);
-                let cell2 = row.insertCell(1);
-                cell1.innerHTML = key;
-                cell2.innerHTML = response.idTokenClaims[key];
-            });
-        });
-}
+function updateTable(account) {
+    tableDiv.classList.remove('d-none');
+
+    Object.keys(account.idTokenClaims).forEach((key) => {
+        let row = tableBody.insertRow(0);
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        cell1.innerHTML = key;
+        cell2.innerHTML = account.idTokenClaims[key];
+    });
+};
