@@ -22,8 +22,11 @@ extensions:
     service: 
 ---
 
-# A Node.js & Express web app authenticating users against Azure AD for Customers with MSAL Node
+# Tutorial: Enable a Node.js (Express) application to sign in users by using Microsoft Entra External ID
 
+**Code sample applies to customer app integration uses case** ![Yes button](yes.png "Title")
+
+* [Instructions](#instructions)
 * [Overview](#overview)
 * [Scenario](#scenario)
 * [Contents](#contents)
@@ -34,6 +37,14 @@ extensions:
 * [About the code](#about-the-code)
 * [Contributing](#contributing)
 * [Learn More](#learn-more)
+
+## Instructions
+
+|          Instruction  |                Description                 |
+|-----------------------|--------------------------------------------|
+| **App integration use case**          |     This code samples applies to **customer app integration** uses case. If you're looking for a workforce integration use [Tutorial: Enable a Node.js (Express) application to sign in users by using Microsoft Entra ID](https://github.com/Azure-Samples/ms-identity-docs-code-javascript)                |
+| **Scenario**        | Sign in users. |
+| **Official documentation**           |   Use the instructions in this page to learn how to run this code sample or use our docs at [Microsoft Entra External ID for customers documentation](https://learn.microsoft.com/azure/active-directory/external-identities/customers/)     |
 
 ## Overview
 
