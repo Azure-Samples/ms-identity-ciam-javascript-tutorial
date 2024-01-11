@@ -8,7 +8,7 @@ export const createClaimsTable = (claims) => {
     let index = 0;
 
     Object.keys(claims).forEach((key) => {
-        if (typeof claims[key] !== 'string' && typeof claims[key] !== 'number') return;
+        if (typeof claims[key] !== 'string' && typeof claims[key] !== 'number' && typeof claims[key] !== 'object') return;
         switch (key) {
             case 'aud':
                 populateClaim(
@@ -190,7 +190,7 @@ export const createClaimsTable = (claims) => {
 const populateClaim = (claim, value, description, index, claimsObject) => {
     let claimsArray = [];
     claimsArray[0] = claim;
-    claimsArray[1] = value;
+    claimsArray[1] = Array.isArray(value) ? value.join(", ") : value;
     claimsArray[2] = description;
     claimsObject[index] = claimsArray;
 };
