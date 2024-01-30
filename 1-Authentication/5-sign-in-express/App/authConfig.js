@@ -6,7 +6,7 @@
 require('dotenv').config();
 
 const TENANT_SUBDOMAIN = process.env.TENANT_SUBDOMAIN || 'Enter_the_Tenant_Subdomain_Here';
-const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000/auth/redirect';
+const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000/redirect';
 const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || 'http://localhost:3000';
 
 /**
