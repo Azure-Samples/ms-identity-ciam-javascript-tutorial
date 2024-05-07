@@ -50,7 +50,6 @@ router.post(
             if (!!req.body) {
               let body = req.body;
               const graphEndpoint = GRAPH_ME_ENDPOINT;
-              console.log(body)
               // API that calls for a single singed in user.
               // more infromation for this endpoint found here
               // https://learn.microsoft.com/en-us/graph/api/user-update?view=graph-rest-1.0&tabs=http
@@ -59,7 +58,6 @@ router.post(
                 givenName: body.givenName,
                 surname: body.surname,
                 mail: body.mail,
-                // officeLocation: body.officeLocation
               })
                 .then((response) => {
                   if (response.status === 204) {
