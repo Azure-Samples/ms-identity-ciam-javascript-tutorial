@@ -5,8 +5,11 @@
     <label>Id :</label>
     <label> {{profile.id}}</label>
     <br/>
-    <label for="userName">Display Name :</label>
-    <input type="text" id="displayName" name="displayName" value="{{profile.displayName}}" />
+    <label>Email :</label>
+    <label> {{profile.mail}}</label>
+    <br/>
+    <label for="userName" >Display Name :</label>
+    <input type="text" id="displayName" name="displayName" {{#if doesRequiredMFA}}disabled{{else}}{{/if}} value="{{profile.displayName}}" />
     <br />
     <label for="userName">Given Name :</label>
     <input type="text" id="givenName" name="givenName" value="{{profile.givenName}}" />
@@ -16,11 +19,19 @@
     <input type="text" id="surname" name="surname" value="{{profile.surname}}" />
     <br />
 
-    <label for="userEmail">Email :</label>
+    {{!-- <label for="userEmail">Email :</label>
     <input type="text" id="mail" name="mail" value="{{profile.mail}}" readonly />
-    <br />
+    <br /> --}}
 
     <button type="submit" id="button">Save</button>
   </form>
+  {{#if doesRequiredMFA}}
+  <p>To Edit Name please complete MFA</p>
+      <a href="/users/gatedUpdateProfile">
+    <button>Edit display name</button>
+    </a>
+    {{else}}
+       <br />
+    {{/if}}
 </div>
 <a href="/">Go back</a>

@@ -6,6 +6,8 @@
 const express = require('express');
 const router = express.Router();
 const authProvider = require('../auth/AuthProvider');
+const temp = require("@azure/msal-node")
+
 var { fetch } = require("../fetch");
 const { GRAPH_ME_ENDPOINT, 
         mfaProtectedResourceScope } = require('../authConfig');
@@ -29,22 +31,40 @@ router.get('/id',
 router.get(
     '/updateProfile',
     isAuthenticated, // check if user is authenticated
-    authProvider.getToken(["User.ReadWrite"]), // check for mfa
+    authProvider.getToken(["User.ReadWrite"]),
     async function (req, res, next) {
+        let doesRequiredMFA = authProvider.doesRequireMFA(req.session.accessToken);
         const graphResponse = await fetch(
             GRAPH_ME_ENDPOINT,
             req.session.accessToken
           );
         res.render("updateProfile", {
             profile: graphResponse,
+            doesRequiredMFA: doesRequiredMFA
           });
     }
+);
+
+router.get(
+  '/gatedUpdateProfile',
+  isAuthenticated, // check if user is authenticated
+  authProvider.getToken(["User.ReadWrite", mfaProtectedResourceScope], 
+                        "http://localhost:3000/users/gatedUpdateProfile"), // check for mfa
+  async function (req, res, next) {
+      const graphResponse = await fetch(
+          GRAPH_ME_ENDPOINT,
+          req.session.accessToken
+        );
+      res.render("updateProfile", {
+          profile: graphResponse,
+          doesRequiredMFA: false
+        });
+  }
 );
 
 router.post(
     '/update',
     isAuthenticated, // check if user is authenticated
-    authProvider.getToken(["User.ReadWrite", mfaProtectedResourceScope]), // check for mfa
     async function (req, res, next) {
         try {
             if (!!req.body) {

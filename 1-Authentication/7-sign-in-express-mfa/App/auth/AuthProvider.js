@@ -74,6 +74,13 @@ class AuthProvider {
         );
     }
 
+    doesRequireMFA(token) {
+        // Decode the access token payload
+        const tokenPayload = JSON.parse(atob(token.split('.')[1]));
+        console.log(tokenPayload);
+        return !tokenPayload.amr.includes("mfa");
+    }
+
     async handleRedirect(req, res, next) {
         const authCodeRequest = {
             ...req.session.authCodeRequest,
@@ -110,7 +117,6 @@ class AuthProvider {
      */
     getToken(scopes, redirectUri = "http://localhost:3000/") {
         return  async function (req, res, next) {
-            console.log(scopes);
             const msalInstance = authProvider.getMsalInstance(authProvider.config.msalConfig);
             try {
                 msalInstance.getTokenCache().deserialize(req.session.tokenCache);
@@ -119,7 +125,6 @@ class AuthProvider {
                     account: req.session.account,
                     scopes: scopes,
                 };
-
                 const tokenResponse = await msalInstance.acquireTokenSilent(silentRequest);
 
                 req.session.tokenCache = msalInstance.getTokenCache().serialize();
@@ -131,7 +136,7 @@ class AuthProvider {
 
                     const state = authProvider.cryptoProvider.base64Encode(
                         JSON.stringify({
-                            redirectTo: 'http://localhost:3000/users/updateProfile',
+                            redirectTo: redirectUri,
                             csrfToken: req.session.csrfToken,
                         })
                     );
