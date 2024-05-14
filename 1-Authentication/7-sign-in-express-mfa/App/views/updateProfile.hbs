@@ -1,6 +1,7 @@
 <h1>Microsoft Graph API</h1>
 <h3>/me endpoint response</h3>
-<div>
+    <div style="display: flex; justify-content: left;">
+<div style="size: 400px;">
   <form id="userInfoForm" action='/users/update' method='POST'>
     <label>Id :</label>
     <label> {{profile.id}}</label>
@@ -19,19 +20,19 @@
     <input type="text" id="surname" name="surname" value="{{profile.surname}}" />
     <br />
 
-    {{!-- <label for="userEmail">Email :</label>
-    <input type="text" id="mail" name="mail" value="{{profile.mail}}" readonly />
-    <br /> --}}
-
     <button type="submit" id="button">Save</button>
   </form>
+</div>
+<div>
+  <br>
+  <br>
   {{#if doesRequiredMFA}}
-  <p>To Edit Name please complete MFA</p>
-      <a href="/users/gatedUpdateProfile">
-    <button>Edit display name</button>
+    <a href="/users/gatedUpdateProfile">
+    <button>Edit</button>
     </a>
     {{else}}
        <br />
     {{/if}}
+ </div>
 </div>
 <a href="/">Go back</a>
