@@ -1,7 +1,7 @@
 const authProvider = require('../auth/AuthProvider');
 
 exports.signIn = async (req, res, next) => {
-    return authProvider.login(req, res, next, {scopes:["User.Read"]});
+    return authProvider.login(req, res, next);
 };
 
 exports.handleRedirect = async (req, res, next) => {
