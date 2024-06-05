@@ -78,6 +78,8 @@ class AuthProvider {
         // Decode the access token payload
         const tokenPayload = JSON.parse(atob(token.split('.')[1]));
         console.log(tokenPayload);
+        // More infromation about the "mfa" can be found here.
+        // https://learn.microsoft.com/en-us/entra/identity-platform/access-token-claims-reference
         return !tokenPayload.amr.includes("mfa");
     }
 
