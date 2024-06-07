@@ -91,7 +91,7 @@ function signOut() {
 
     // Choose which account to logout from by passing a username.
     const logoutRequest = {
-        account: myMSALObj.getAccountByUsername(username),
+        account: myMSALObj.getAccount({ username: username }),
         postLogoutRedirectUri: '/signout', // remove this line if you would like navigate to index page after logout.
 
     };
