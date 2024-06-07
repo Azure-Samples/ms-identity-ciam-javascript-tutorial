@@ -13,8 +13,11 @@ import { LogLevel } from '@azure/msal-browser';
 
 export const msalConfig = {
     auth: {
-        clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
-        authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace the placeholder with your tenant subdomain 
+        // clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
+        // authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace the placeholder with your tenant subdomain 
+        clientId: '94fc755a-af32-43f9-9ce6-5f86f2beb928', // This is the ONLY mandatory field that you need to supply.
+        authority: 'https://TrialTenantkwFwHYij.ciamlogin.com/', // Replace the placeholder with your tenant subdomain
+        redirectUri: 'http://localhost:3000/redirect', // Points to window.location.origin. You must register this URI on Azure Portal/App Registration.
         postLogoutRedirectUri: '/', // Indicates the page to navigate after logout.
         navigateToLoginRequestUrl: false, // If "true", will navigate back to the original request location before processing the auth code response.
     },
