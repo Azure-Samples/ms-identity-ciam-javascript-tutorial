@@ -1,6 +1,7 @@
-import { Router } from '@angular/router';
+import "zone.js/testing";
+import { provideRouter, Router } from '@angular/router';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+// import { RouterTestingHarness } from '@angular/router/testing';
 
 import { MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
 import { InteractionType } from '@azure/msal-browser';
@@ -74,7 +75,7 @@ function setup() {
   TestBed.configureTestingModule({
     imports: [
       AppModule,
-      RouterTestingModule,
+      provideRouter,
     ],
     providers: [
       {
