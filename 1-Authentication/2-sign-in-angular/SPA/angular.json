@@ -16,11 +16,7 @@
             "outputPath": "dist/1-sign-in-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
-            // "polyfills": "src/polyfills.ts",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
