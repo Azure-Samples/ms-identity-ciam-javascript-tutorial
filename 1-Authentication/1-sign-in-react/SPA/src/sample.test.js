@@ -54,11 +54,11 @@ describe('Ensure that the app starts', () => {
         const container = document.createElement('div');
         document.body.appendChild(container);
         act(() => {
-            createRoot(container).render(<App msalInstance={pca} />);
+            createRoot(container).render(<App instance={pca} />);
           });
 
         await waitFor(() => expect(handleRedirectSpy).toHaveBeenCalledTimes(1));
 
-        expect(root.textContent).toContain('Welcome to the Microsoft Authentication Library For React Tutorial');
+        expect(container.textContent).toContain('Welcome to the Microsoft Authentication Library For React Tutorial');
     });
 });

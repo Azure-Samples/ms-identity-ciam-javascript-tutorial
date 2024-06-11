@@ -30,7 +30,7 @@
         ]
     },
     "jest": {
-        "transformIgnorePatterns": ["!node_modules/"] 
+        "transformIgnorePatterns": ["node_modules/(?!(@azure/msal-browser|@azure/msal-react)/)"]
     },
     "browserslist": {
         "production": [
