@@ -14,8 +14,10 @@ const TENANT_SUBDOMAIN = 'Enter_the_Tenant_Subdomain_Here';
  */
 const msalConfig = {
     auth: {
-        clientId: 'Enter_the_Application_Id_Here',
-        authority: `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, // Replace the placeholder with your tenant subdomain,
+        // clientId: 'Enter_the_Application_Id_Here',
+        // authority: `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, // Replace the placeholder with your tenant subdomain,
+        clientId: '94fc755a-af32-43f9-9ce6-5f86f2beb928', // This is the ONLY mandatory field that you need to supply.
+        authority: 'https://TrialTenantkwFwHYij.ciamlogin.com//', // Replace the placeholder with your tenant subdomain
     },
     system: {
         loggerOptions: {
