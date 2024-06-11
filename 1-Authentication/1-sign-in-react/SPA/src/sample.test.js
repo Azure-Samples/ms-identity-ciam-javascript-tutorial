@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { React, act } from 'react';
+import { createRoot } from 'react-dom/client';
 import { waitFor } from '@testing-library/react';
 
 import App from './App';
@@ -51,12 +51,14 @@ describe('Ensure that the app starts', () => {
     });
 
     it('should render the app without crashing', async () => {
-        const div = document.createElement('div');
-
-        ReactDOM.render(<App msalInstance={pca} />, div);
+        const container = document.createElement('div');
+        document.body.appendChild(container);
+        act(() => {
+            createRoot(container).render(<App msalInstance={pca} />);
+          });
 
         await waitFor(() => expect(handleRedirectSpy).toHaveBeenCalledTimes(1));
 
-        expect(div.textContent).toContain('Welcome to the Microsoft Authentication Library For React Tutorial');
+        expect(root.textContent).toContain('Welcome to the Microsoft Authentication Library For React Tutorial');
     });
 });
