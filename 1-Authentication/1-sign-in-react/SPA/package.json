@@ -14,7 +14,7 @@
         "react-dom": "^18.3.1"
     },
     "devDependencies": {
-        "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
+        "@babel/plugin-transform-private-property-in-object": "^7.24.7",
         "react-scripts": "5.0.1"
     },
     "scripts": {
@@ -30,7 +30,9 @@
         ]
     },
     "jest": {
-        "transformIgnorePatterns": ["node_modules/(?!(@azure/msal-browser|@azure/msal-react)/)"]
+        "transformIgnorePatterns": [
+            "node_modules/(?!(@azure/msal-browser|@azure/msal-react)/)"
+        ]
     },
     "browserslist": {
         "production": [
