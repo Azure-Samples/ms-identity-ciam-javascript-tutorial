@@ -9,12 +9,12 @@
     },
     "license": "ISC",
     "devDependencies": {
-        "electron": "^31.0.0"
+        "electron": "^31.0.1"
     },
     "dependencies": {
         "@azure/msal-node": "^2.9.2",
+        "@popperjs/core": "^2.11.8",
         "bootstrap": "^5.3.3",
-        "jquery": "^3.7.1",
-        "popper.js": "^1.16.1"
+        "jquery": "^3.7.1"
     }
 }
