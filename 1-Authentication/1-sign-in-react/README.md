@@ -211,13 +211,13 @@ To provide feedback on or suggest features for Azure Active Directory, visit [Us
 MSAL React should be instantiated outside of the component tree to prevent it from being re-instantiated on re-renders. After instantiation, pass it as props to your application.
 
 ```javascript
+import { createRoot } from 'react-dom/client';
+
 const msalInstance = new PublicClientApplication(msalConfig);
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App msalInstance={msalInstance}/>
-    </React.StrictMode>,
-    document.getElementById("root")
+const root = createRoot(document.getElementById('root'));
+root.render(
+    <App instance={msalInstance}/>
 );
 
 export default function App({msalInstance}) {
