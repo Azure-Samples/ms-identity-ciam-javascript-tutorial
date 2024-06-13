@@ -9,7 +9,7 @@
     },
     "license": "ISC",
     "devDependencies": {
-        "electron": "^31.0.1"
+        "electron": "^29.1.6"
     },
     "dependencies": {
         "@azure/msal-node": "^2.9.2",

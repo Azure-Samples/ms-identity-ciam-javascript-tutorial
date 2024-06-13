@@ -19,7 +19,9 @@ class AuthProvider {
          * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-public-client-application.md
          */
         this.msalConfig = msalConfig;
+        console.log(this.msalConfig);
         this.clientApplication = new PublicClientApplication(this.msalConfig);
+        console.log(this.clientApplication);
         this.cache = this.clientApplication.getTokenCache();
         this.account = null;
     }
