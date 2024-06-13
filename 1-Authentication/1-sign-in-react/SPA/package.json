@@ -3,9 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@azure/msal-browser": "^3.16.0",
-        "@azure/msal-react": "^2.0.18",
-        "@testing-library/jest-dom": "^6.4.5",
+        "@azure/msal-browser": "^3.17.0",
+        "@azure/msal-react": "^2.0.19",
+        "@testing-library/jest-dom": "^6.4.6",
         "@testing-library/react": "^16.0.0",
         "@testing-library/user-event": "^14.5.2",
         "bootstrap": "^5.3.3",
@@ -27,6 +27,11 @@
         "extends": [
             "react-app",
             "react-app/jest"
+        ]
+    },
+    "jest": {
+        "transformIgnorePatterns": [
+            "node_modules/(?!(@azure/msal-browser|@azure/msal-react)/)"
         ]
     },
     "browserslist": {
