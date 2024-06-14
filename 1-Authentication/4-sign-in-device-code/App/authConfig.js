@@ -7,8 +7,10 @@ const { LogLevel } = require('@azure/msal-node');
  */
 const msalConfig = {
     auth: {
-        clientId: 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-        authority: `https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/`, // Replace the placeholder with your tenant subdomain
+        // clientId: 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+        // authority: `https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/`, // Replace the placeholder with your tenant subdomain
+        clientId: '3f1e48cc-a053-4702-adbe-5918e8247d6a', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+        authority: `https://TrialTenantkwFwHYij.ciamlogin.com/`, // Replace the placeholder with your tenant subdomain
     },
     system: {
         loggerOptions: {

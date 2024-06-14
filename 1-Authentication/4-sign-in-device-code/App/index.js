@@ -6,6 +6,8 @@ const getTokenDeviceCode = (clientApplication) => {
      * Device Code Request. For more information visit:
      * https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_node.html#devicecoderequest
      */
+    console.log(clientApplication.acquireTokenByDeviceCode);
+    console.log('called get token');
     const deviceCodeRequest = {
         ...loginRequest,
         deviceCodeCallback: (response) => {
@@ -28,6 +30,7 @@ const getTokenDeviceCode = (clientApplication) => {
             return response;
         })
         .catch((error) => {
+            console.log(error);
             return error;
         });
 }
