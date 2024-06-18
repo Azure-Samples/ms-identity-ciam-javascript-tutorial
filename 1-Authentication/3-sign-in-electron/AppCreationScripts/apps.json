@@ -1,6 +1,6 @@
 {
     "Sample": {
-        "Title": "An Electron desktop application using MSAL Node to authenticate users against Azure AD for Customers",
+        "Title": "An Electron desktop application using MSAL Node to authenticate users against Microsoft Entra External ID",
         "Client": "ElectronDesktopApp",
         "Level": 100
     },

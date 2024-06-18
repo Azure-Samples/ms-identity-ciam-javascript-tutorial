@@ -33,7 +33,7 @@ This sample comes with two PowerShell scripts, which automate the creation of th
 These scripts are:
 
 - `Configure.ps1` which:
-  - creates Azure AD applications and their related objects (permissions, dependencies, secrets, app roles),
+  - creates Microsoft Entra applications and their related objects (permissions, dependencies, secrets, app roles),
   - changes the configuration files in the sample projects.
   - creates a summary file named `createdApps.html` in the folder from which you ran the script, and containing, for each Azure AD application it created:
     - the identifier of the application

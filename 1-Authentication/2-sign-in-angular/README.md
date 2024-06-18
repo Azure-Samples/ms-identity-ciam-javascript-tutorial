@@ -1,7 +1,7 @@
 ---
 page_type: sample
-name: Angular single-page application using MSAL Angular to sign-in users against Azure AD for Customers
-description: This sample demonstrates an Angular single-page application (SPA) that uses Microsoft Authentication Library for Angular (MSAL Angular) to sign-in users with Azure Active Directory Consumers Identity and Access Management (Azure AD for Customers)
+name: Angular single-page application using MSAL Angular to sign-in users against Microsoft Entra External ID
+description: This sample demonstrates an Angular single-page application (SPA) that uses Microsoft Authentication Library for Angular (MSAL Angular) to sign-in users with Azure Active Directory Consumers Identity and Access Management (Microsoft Entra External ID)
 languages:
  - javascript
  - typescript
@@ -22,7 +22,7 @@ extensions:
     - Angular SPA
 ---
 
-# Angular single-page application using MSAL Angular to sign-in users against Azure AD for Customers
+# Angular single-page application using MSAL Angular to sign-in users against Microsoft Entra External ID
 
 * [Overview](#overview)
 * [Scenario](#scenario)
@@ -37,7 +37,7 @@ extensions:
 
 ## Overview
 
-This sample demonstrates an Angular single-page application (SPA) that lets users sign-in with Azure Active Directory (Azure AD) Consumers Identity and Access Management (CIAM) using the [Microsoft Authentication Library for Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular) (MSAL Angular).
+This sample demonstrates an Angular single-page application (SPA) that lets users sign-in with Microsoft Entra External ID using the [Microsoft Authentication Library for Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular) (MSAL Angular).
 
 Here you'll learn about [ID Tokens](https://docs.microsoft.com/azure/active-directory/develop/id-tokens), [OIDC scopes](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes), [single-sign on](https://docs.microsoft.com/azure/active-directory/develop/msal-js-sso), **silent requests** and more.
 
@@ -45,8 +45,8 @@ Here you'll learn about [ID Tokens](https://docs.microsoft.com/azure/active-dire
 
 ## Scenario
 
-1. The client Angular SPA uses the  to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) from **Azure AD for Customers**.
-1. The **ID Token** proves that the user has successfully authenticated against **Azure AD for Customers**.
+1. The client Angular SPA uses the  to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) from **Microsoft Entra External ID**.
+1. The **ID Token** proves that the user has successfully authenticated against **Microsoft Entra External ID**.
 
 ![Scenario Image](./ReadmeFiles/topology.png)
 
@@ -64,8 +64,8 @@ Here you'll learn about [ID Tokens](https://docs.microsoft.com/azure/active-dire
 * [Visual Studio Code](https://code.visualstudio.com/download) is recommended for running and editing this sample.
 * [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
 * A modern web browser.
-* An **CIAM** tenant. For more information, see: [How to get an Azure AD for Customers tenant](https://github.com/microsoft/entra-previews/blob/PP2/docs/1-Create-a-CIAM-tenant.md)
-* A user account in your CIAM tenant.
+* An **CIAM** tenant. For more information, see: [How to get an external tenant](https://github.com/microsoft/entra-previews/blob/PP2/docs/1-Create-a-CIAM-tenant.md)
+* A user account in your external tenant.
 
 >This sample will not work with a **personal Microsoft account**. If you're signed in to the [Azure portal](https://portal.azure.com) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
 
@@ -96,7 +96,7 @@ There is one project in this sample. To register it, you can:
 
 - follow the steps below for manually register your apps
 - or use PowerShell scripts that:
-  - **automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
+  - **automatically** creates the Microsoft Entra applications and related objects (passwords, permissions, dependencies) for you.
   - modify the projects' configuration files.
 
 <details>
@@ -122,18 +122,18 @@ There is one project in this sample. To register it, you can:
     > Other ways of running the scripts are described in [App Creation Scripts guide](./AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
 </details>
 
-#### Choose the CIAM tenant where you want to create your applications
+#### Choose the external tenant where you want to create your applications
 
 To manually register the apps, as a first step you'll need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If your account is present in more than one CIAM tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired CIAM tenant.
+1. If your account is present in more than one external tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired external tenant.
 
 #### Create User Flows
 
 Please refer to: [Tutorial: Create user flow in Azure Active Directory CIAM](https://github.com/microsoft/entra-previews/blob/PP2/docs/3-Create-sign-up-and-sign-in-user-flow.md)
 
-> :information_source: To enable password reset in Customer Identity Access Management (CIAM) in Azure Active Directory (Azure AD), please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
+> :information_source: To enable password reset in Microsoft Entra External ID in Azure Active Directory (Azure AD), please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
 
 #### Add External Identity Providers
 
@@ -163,7 +163,7 @@ Please refer to:
     1. In the *Commonly used Microsoft APIs* section, select **Microsoft Graph**
     1. In the **Delegated permissions** section, select **openid**, **offline_access** in the list. Use the search box if necessary.
     1. Select the **Add permissions** button at the bottom.
-1. At this stage, the permissions are assigned correctly, but since it's a CIAM tenant, the users themselves cannot consent to these permissions. To get around this problem, we'd let the [tenant administrator consent on behalf of all users in the tenant](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent). Select the **Grant admin consent for {tenant}** button, and then select **Yes** when you are asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a tenant admin to be able to carry out this operation.
+1. At this stage, the permissions are assigned correctly, but since it's an external tenant, the users themselves cannot consent to these permissions. To get around this problem, we'd let the [tenant administrator consent on behalf of all users in the tenant](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent). Select the **Grant admin consent for {tenant}** button, and then select **Yes** when you are asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a tenant admin to be able to carry out this operation.
 
 ##### Configure the spa app (ciam-msal-angular-spa) to use your app registration
 

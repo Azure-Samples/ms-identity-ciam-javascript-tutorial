@@ -1,7 +1,7 @@
 ---
 page_type: sample
-name: A Node headless application using MSAL Node to authenticate users with the device code flow against Customer Identity Access Management (CIAM)
-description: A Node headless application using MSAL Node to authenticate users with the device code flow against Customer Identity Access Management (CIAM)
+name: A Node headless application using MSAL Node to authenticate users with the device code flow against Microsoft Entra External ID
+description: A Node headless application using MSAL Node to authenticate users with the device code flow against Microsoft Entra External ID
 languages:
  - javascript
 products:
@@ -22,7 +22,7 @@ extensions:
     - Node headless application
 ---
 
-# A Node headless application using MSAL Node to authenticate users with the device code flow against Customer Identity Access Management (CIAM)
+# A Node headless application using MSAL Node to authenticate users with the device code flow against Microsoft Entra External ID
 
 * [Overview](#overview)
 * [Scenario](#scenario)
@@ -36,12 +36,12 @@ extensions:
 
 ## Overview
 
-This sample demonstrates a Node headless application that authenticates users with the [device code flow](https://learn.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code) against Azure AD for Customers.
+This sample demonstrates a Node headless application that authenticates users with the [device code flow](https://learn.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code) against Microsoft Entra External ID.
 
 ## Scenario
 
-1. The client Node headless application uses MSAL Node to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) from **Azure AD for Customers**.
-1. The **ID Token** proves that the user has successfully authenticated against **Azure AD for Customers**.
+1. The client Node headless application uses MSAL Node to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) from **Microsoft Entra External ID**.
+1. The **ID Token** proves that the user has successfully authenticated against **Microsoft Entra External ID**.
 
 ![Scenario Image](./ReadmeFiles/topology.png)
 
@@ -54,8 +54,8 @@ This sample demonstrates a Node headless application that authenticates users wi
 
 ## Prerequisites
 
-* An **Azure AD for Customers** tenant. For more information, see: [How to get an Azure AD for Customers tenant](https://github.com/microsoft/entra-previews/blob/PP2/docs/1-Create-a-CIAM-tenant.md)
-* A user account in your **Azure AD for Customers** tenant.
+* An **Microsoft Entra External ID** tenant. For more information, see: [How to get an external tenant](https://github.com/microsoft/entra-previews/blob/PP2/docs/1-Create-a-CIAM-tenant.md)
+* A user account in your **Microsoft Entra External ID** tenant.
 
 >This sample will not work with a **personal Microsoft account**. If you're signed in to the [Azure portal](https://portal.azure.com) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
 
@@ -86,7 +86,7 @@ There is one project in this sample. To register it, you can:
 
 * follow the steps below for manually register your apps
 * or use PowerShell scripts that:
-  * **automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
+  * **automatically** creates the Microsoft Entra applications and related objects (passwords, permissions, dependencies) for you.
   * modify the projects' configuration files.
 
 <details>
@@ -113,20 +113,20 @@ There is one project in this sample. To register it, you can:
 
 </details>
 
-#### Choose the Azure AD for Customers tenant where you want to create your applications
+#### Choose the Microsoft Entra External ID tenant where you want to create your applications
 
 To manually register the apps, as a first step you'll need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If your account is present in more than one directory, make sure you're using the directory that contains your Azure AD for Customers tenant:
+1. If your account is present in more than one directory, make sure you're using the directory that contains your external tenant:
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for Customers tenant in the Directory name list, and then select **Switch**
+    1. On the **Portal settings | Directories + subscriptions** page, find your external tenant in the Directory name list, and then select **Switch**
 
 #### Create User Flows
 
 Please refer to: [Tutorial: Create user flow in Azure Active Directory CIAM](https://github.com/microsoft/entra-previews/blob/PP2/docs/3-Create-sign-up-and-sign-in-user-flow.md)
 
-> :information_source: To enable password reset in Customer Identity Access Management (CIAM) in Azure Active Directory (Azure AD), please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
+> :information_source: To enable password reset in Microsoft Entra External ID in Azure Active Directory (Azure AD), please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
 
 #### Add External Identity Providers
 
@@ -137,7 +137,7 @@ Please refer to:
 
 #### Register the client app (msal-node-headless)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure AD for Customers** service.
+1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Microsoft Entra External ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `msal-node-headless`.
@@ -154,7 +154,7 @@ Please refer to:
     1. In the *Commonly used Microsoft APIs* section, select **Microsoft Graph**
     1. In the **Delegated permissions** section, select **openid**, **offline_access** in the list. Use the search box if necessary.
     1. Select the **Add permissions** button at the bottom.
-1. At this stage, the permissions are assigned correctly, but since it's a CIAM tenant, the users themselves cannot consent to these permissions. To get around this problem, we'd let the [tenant administrator consent on behalf of all users in the tenant](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent). Select the **Grant admin consent for {tenant}** button, and then select **Yes** when you are asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a tenant admin to be able to carry out this operation.
+1. At this stage, the permissions are assigned correctly, but since it's an external tenant, the users themselves cannot consent to these permissions. To get around this problem, we'd let the [tenant administrator consent on behalf of all users in the tenant](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent). Select the **Grant admin consent for {tenant}** button, and then select **Yes** when you are asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a tenant admin to be able to carry out this operation.
 
 ##### Configure the client app (msal-node-headless) to use your app registration
 

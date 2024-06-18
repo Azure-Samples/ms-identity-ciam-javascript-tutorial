@@ -9,8 +9,8 @@ param(
 )
 
 <#
- This script creates the Azure AD applications needed for this sample and updates the configuration files
- for the visual Studio projects from the data in the Azure AD applications.
+ This script creates the Microsoft Entra applications needed for this sample and updates the configuration files
+ for the visual Studio projects from the data in the Microsoft Entra applications.
 
  In case you don't have Microsoft.Graph.Applications already installed, the script will automatically install it for the current user
  
@@ -170,7 +170,7 @@ Function ReplaceInTextFile([string] $configFilePath, [System.Collections.HashTab
 Function ConfigureApplications
 {
     <#.Description
-       This function creates the Azure AD applications for the sample in the provided Azure AD tenant and updates the
+       This function creates the Microsoft Entra applications for the sample in the provided Azure AD tenant and updates the
        configuration files in the client and service project  of the visual studio solution (App.Config and Web.Config)
        so that they are consistent with the Applications parameters
     #> 
