@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License.
  */
-const { PublicClientApplication, InteractionRequiredAuthError } = require('@azure/msal-node');
-const open = require('open');
-const { msalConfig, loginRequest } = require('./authConfig');
+import { PublicClientApplication, InteractionRequiredAuthError } from '@azure/msal-node';
+import open from 'open';
+import { msalConfig, loginRequest } from './authConfig.js';
 
 // Before running the sample, you will need to replace the values in src/authConfig.js
 
@@ -30,12 +30,14 @@ const pca = new PublicClientApplication(msalConfig);
 
 const acquireToken = async () => {
     const accounts = await pca.getTokenCache().getAllAccounts();
+    console.log(accounts);
     if (accounts.length === 1) {
         const silentRequest = {
             account: accounts[0],
         };
 
         return pca.acquireTokenSilent(silentRequest).catch((e) => {
+            console.log(e);
             if (e instanceof InteractionRequiredAuthError) {
                 return pca.acquireTokenInteractive(tokenRequest);
             }
@@ -46,6 +48,7 @@ const acquireToken = async () => {
         });
         return Promise.reject('Multiple accounts found. Please select an account to use.');
     } else {
+        console.log(pca);
         return pca.acquireTokenInteractive(tokenRequest);
     }
 };
