@@ -57,7 +57,7 @@ This sample demonstrates a Node headless application that authenticates users wi
 * An **Microsoft Entra External ID** tenant. For more information, see: [How to get an external tenant](https://github.com/microsoft/entra-previews/blob/PP2/docs/1-Create-a-CIAM-tenant.md)
 * A user account in your **Microsoft Entra External ID** tenant.
 
->This sample will not work with a **personal Microsoft account**. If you're signed in to the [Azure portal](https://portal.azure.com) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
+>This sample will not work with a **personal Microsoft account**. If you're signed in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
 
 ## Setup the sample
 
@@ -117,7 +117,7 @@ There is one project in this sample. To register it, you can:
 
 To manually register the apps, as a first step you'll need to:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. If your account is present in more than one directory, make sure you're using the directory that contains your external tenant:
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
     1. On the **Portal settings | Directories + subscriptions** page, find your external tenant in the Directory name list, and then select **Switch**
@@ -137,7 +137,7 @@ Please refer to:
 
 #### Register the client app (msal-node-headless)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Microsoft Entra External ID** service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/) and select the **Microsoft Entra External ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `msal-node-headless`.

@@ -124,12 +124,12 @@ There are two projects in this sample. Each needs to be separately registered in
 
 To manually register the apps, as a first step you'll need to:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. If your account is present in more than one Microsoft Entra External ID tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra External ID tenant.
 
 #### Register the service app (ciam-msal-dotnet-api)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Microsoft Entra External ID** service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/) and select the **Microsoft Entra External ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ciam-msal-dotnet-api`.
@@ -191,7 +191,7 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 
 #### Register the client app (ciam-msal-node-daemon)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Microsoft Entra External ID** service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/) and select the **Microsoft Entra External ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ciam-msal-node-daemon`.
@@ -386,7 +386,7 @@ Follow the link to [Publish with Visual Studio](https://docs.microsoft.com/visua
 >
 > If that's the case, you'll need enable [cross-origin resource sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) for you web API. Follow the steps below to do this:
 >
-> * Go to [Azure portal](https://portal.azure.com), and locate the web API project that you've deployed to App Service.
+> * Go to [Microsoft Entra admin center](https://entra.microsoft.com/), and locate the web API project that you've deployed to App Service.
 > * On the API blade, select **CORS**. Check the box **Enable Access-Control-Allow-Credentials**.
 > * Under **Allowed origins**, add the URL of your published web app **that will call this web API**.
 

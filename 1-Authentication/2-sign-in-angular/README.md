@@ -67,7 +67,7 @@ Here you'll learn about [ID Tokens](https://docs.microsoft.com/azure/active-dire
 * An **CIAM** tenant. For more information, see: [How to get an external tenant](https://github.com/microsoft/entra-previews/blob/PP2/docs/1-Create-a-CIAM-tenant.md)
 * A user account in your external tenant.
 
->This sample will not work with a **personal Microsoft account**. If you're signed in to the [Azure portal](https://portal.azure.com) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
+>This sample will not work with a **personal Microsoft account**. If you're signed in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
 
 ## Setup the sample
 
@@ -126,7 +126,7 @@ There is one project in this sample. To register it, you can:
 
 To manually register the apps, as a first step you'll need to:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. If your account is present in more than one external tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired external tenant.
 
 #### Create User Flows
@@ -144,7 +144,7 @@ Please refer to:
 
 #### Register the spa app (ciam-msal-angular-spa)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the CIAM service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/) and select the CIAM service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ciam-msal-angular-spa`.
@@ -370,7 +370,7 @@ Build your project to get a distributable files folder, where your built `html`,
 
 > :information_source: If you don't have an account already, see: [How to create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create).
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. Locate your storage account and display the account overview.
 1. Select **Static website** to display the configuration page for static websites.
 1. Select **Enabled** to enable static website hosting for the storage account.
@@ -386,7 +386,7 @@ Build your project to get a distributable files folder, where your built `html`,
 
 #### Update the CIAM app registration for ciam-msal-angular-spa
 
-1. Navigate back to to the [Azure portal](https://portal.azure.com).
+1. Navigate back to to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations**.
 1. In the resulting screen, select `ciam-msal-angular-spa`.
 1. In the app's registration screen, select **Authentication** in the menu.

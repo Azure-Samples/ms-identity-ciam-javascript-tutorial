@@ -125,7 +125,7 @@ There are two projects in this sample. Each needs to be separately registered in
 
 To manually register the apps, as a first step you'll need to:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. If your account is present in more than one Microsoft Entra External ID tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra External ID tenant.
 
 #### Create User Flows
@@ -143,7 +143,7 @@ Please refer to:
 
 #### Register the service app (ciam-msal-dotnet-api)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Microsoft Entra External ID** service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/) and select the **Microsoft Entra External ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ciam-msal-dotnet-api`.
@@ -204,7 +204,7 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 
 #### Register the client app (ciam-msal-javascript-spa)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Microsoft Entra External ID** service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/) and select the **Microsoft Entra External ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ciam-msal-javascript-spa`.
@@ -455,7 +455,7 @@ Build your project to get a distributable files folder, where your built `html`,
 
 > :information_source: If you don't have an account already, see: [How to create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create).
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. Locate your storage account and display the account overview.
 1. Select **Static website** to display the configuration page for static websites.
 1. Select **Enabled** to enable static website hosting for the storage account.
@@ -471,7 +471,7 @@ Build your project to get a distributable files folder, where your built `html`,
 
 #### Update the CIAM app registration for ciam-msal-javascript-spa
 
-1. Navigate back to to the [Azure portal](https://portal.azure.com).
+1. Navigate back to to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations**.
 1. In the resulting screen, select `ciam-msal-javascript-spa`.
 1. In the app's registration screen, select **Authentication** in the menu.
