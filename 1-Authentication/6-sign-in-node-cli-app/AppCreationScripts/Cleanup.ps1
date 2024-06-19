@@ -22,7 +22,7 @@ Function Cleanup
     #>
 
     # $tenantId is the Active Directory Tenant. This is a GUID which represents the "Directory ID" of the AzureAD tenant 
-    # into which you want to create the apps. Look it up in the Azure portal in the "Properties" of the Azure AD. 
+    # into which you want to create the apps. Look it up in the Microsoft Entra admin center in the "Properties" of the Azure AD. 
 
     # Connect to the Microsoft Graph API
     Write-Host "Connecting to Microsoft Graph"
