@@ -30,14 +30,12 @@ const pca = new PublicClientApplication(msalConfig);
 
 const acquireToken = async () => {
     const accounts = await pca.getTokenCache().getAllAccounts();
-    console.log(accounts);
     if (accounts.length === 1) {
         const silentRequest = {
             account: accounts[0],
         };
 
         return pca.acquireTokenSilent(silentRequest).catch((e) => {
-            console.log(e);
             if (e instanceof InteractionRequiredAuthError) {
                 return pca.acquireTokenInteractive(tokenRequest);
             }
@@ -48,7 +46,6 @@ const acquireToken = async () => {
         });
         return Promise.reject('Multiple accounts found. Please select an account to use.');
     } else {
-        console.log(pca);
         return pca.acquireTokenInteractive(tokenRequest);
     }
 };

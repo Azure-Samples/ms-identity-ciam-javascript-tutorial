@@ -7,8 +7,8 @@ import { LogLevel } from '@azure/msal-node';
  */
 export const msalConfig = {
     auth: {
-        clientId: '2e9d2f02-7eb8-4cc3-9bd8-5e67eff7b80b',
-        authority: 'https://TrialTenantkwFwHYij.ciamlogin.com/',
+        clientId: 'Enter_the_Application_Id_Here',
+        authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/',    
     },
     system: {
         loggerOptions: {
@@ -30,8 +30,3 @@ export const msalConfig = {
 export const loginRequest = {
     scopes: [],
 };
-
-// module.exports = {
-//     msalConfig: msalConfig,
-//     loginRequest: loginRequest,
-// };
