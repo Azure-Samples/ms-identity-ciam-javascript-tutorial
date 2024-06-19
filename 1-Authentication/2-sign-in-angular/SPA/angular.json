@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "1-sign-in-angular:build:production"
+              "buildTarget": "1-sign-in-angular:build:production"
             },
             "development": {
-              "browserTarget": "1-sign-in-angular:build:development"
+              "buildTarget": "1-sign-in-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "1-sign-in-angular:build"
+            "buildTarget": "1-sign-in-angular:build"
           }
         },
         "test": {
@@ -99,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

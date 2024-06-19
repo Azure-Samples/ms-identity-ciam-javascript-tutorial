@@ -2,8 +2,7 @@
 // configuration parameters are located at authConfig.js
 const myMSALObj = new msal.PublicClientApplication(msalConfig);
 
-let username = "";
-
+myMSALObj.initialize().then(() => {
 /**
  * A promise handler needs to be registered for handling the
  * response returned from redirect flow. For more information, visit:
@@ -14,6 +13,10 @@ myMSALObj.handleRedirectPromise()
     .catch((error) => {
         console.error(error);
     });
+});
+
+let username = "";
+
 
 function selectAccount() {
 
@@ -88,7 +91,7 @@ function signOut() {
 
     // Choose which account to logout from by passing a username.
     const logoutRequest = {
-        account: myMSALObj.getAccountByUsername(username),
+        account: myMSALObj.getAccount({ username: username }),
         postLogoutRedirectUri: '/signout', // remove this line if you would like navigate to index page after logout.
 
     };
