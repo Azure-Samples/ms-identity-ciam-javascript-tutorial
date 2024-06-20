@@ -1,6 +1,6 @@
 {
     "Sample": {
-        "Title": "Vanilla JavaScript single-page application using MSAL.js to authenticate users against Customer Identity Access Management (CIAM)",
+        "Title": "Vanilla JavaScript single-page application using MSAL.js to authenticate users against Microsoft Entra External ID",
         "Level": 100,
         "Client": "Vanilla JavaScript SPA",
         "RepositoryUrl": "ms-identity-ciam-javascript-tutorial",
@@ -8,7 +8,7 @@
         "Languages": [
             "javascript"
         ],
-        "Description": "Vanilla JavaScript single-page application using MSAL.js to authenticate users against Customer Identity Access Management (CIAM)",
+        "Description": "Vanilla JavaScript single-page application using MSAL.js to authenticate users against Microsoft Entra External ID",
         "Products": [
             "azure-active-directory",
             "msal-js",

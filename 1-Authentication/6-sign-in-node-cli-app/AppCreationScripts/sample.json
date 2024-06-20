@@ -1,13 +1,13 @@
 {
     "Sample": {
-        "Title": "A Node Command Line Interface (CLI) application using MSAL Node to authentication users against Customer Identity Access Management (CIAM).",
+        "Title": "A Node Command Line Interface (CLI) application using MSAL Node to authentication users against Microsoft Entra External ID.",
         "Level": 100,
         "Client": "Node CLI",
         "RepositoryUrl": "ms-identity-ciam-javascript-tutorial",
         "Endpoint": "AAD v2.0",
         "platform": "javascript",
         "Languages": ["javascript"],
-        "Description": "A Node Command Line Interface (CLI) application using MSAL Node to authentication users against Customer Identity Access Management (CIAM).",
+        "Description": "A Node Command Line Interface (CLI) application using MSAL Node to authentication users against Microsoft Entra External ID.",
         "products": ["azure-active-directory", "msal-js", "msal-node"],
         "Provider": "CIAM"
     },

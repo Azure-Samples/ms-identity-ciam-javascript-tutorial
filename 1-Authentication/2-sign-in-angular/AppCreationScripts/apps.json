@@ -1,6 +1,6 @@
 {
     "Sample": {
-        "Title": "An Angular single-page application using MSAL Angular to authenticate users against Azure AD for Customers",
+        "Title": "An Angular single-page application using MSAL Angular to authenticate users against Microsoft Entra External ID",
         "Client": "SinglePageApplication",
         "Level": 100
     },
