@@ -67,13 +67,8 @@ Here you'll learn about [access tokens](https://docs.microsoft.com/azure/active-
 ## Prerequisites
 
 * Either [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [Visual Studio Code](https://code.visualstudio.com/download) and [.NET Core SDK](https://www.microsoft.com/net/learn/get-started)
-<<<<<<< HEAD
-* An * An **external Microsoft Entra ID** tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/create-new-tenant)
+* An **external Microsoft Entra ID** tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/create-new-tenant)
 * A user account in your **external Microsoft Entra ID** tenant.
-=======
-* An **Microsoft Entra External ID** tenant. For more information, see: [How to get an external tenant](https://github.com/microsoft/entra-previews/blob/PP2/docs/1-Create-a-CIAM-tenant.md)
-* A user account in your **Microsoft Entra External ID** tenant.
->>>>>>> d4b630f2622035dbebd4d5c4bcc601d450124824
 
 ## Setup the sample
 
@@ -134,15 +129,9 @@ To manually register the apps, as a first step you'll need to:
 
 #### Create User Flows
 
-<<<<<<< HEAD
 Please refer to: [Tutorial: Create a sign-up and sign-in user flow](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers)
 
-> :information_source: To enable password reset in an external tenant, please refer to: [Tutorial: Add self-service password reset](https://learn.microsoft.com/en-us/entra/external-id/customers/tutorial-native-authentication-android-self-service-password-reset)
-=======
-Please refer to: [Tutorial: Create user flow in Microsoft Entra External ID](https://github.com/microsoft/entra-previews/blob/PP2/docs/3-Create-sign-up-and-sign-in-user-flow.md)
-
-> :information_source: To enable password reset in Microsoft Entra External ID in Microsoft Entra, please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
->>>>>>> d4b630f2622035dbebd4d5c4bcc601d450124824
+> :information_source: To enable password reset in an external tenant, please refer to: [Tutorial: Enable users to unlock their account or reset passwords using Microsoft Entra self-service password reset](https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr)
 
 #### Add External Identity Providers
 
