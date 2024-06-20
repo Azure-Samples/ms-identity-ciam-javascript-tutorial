@@ -29,27 +29,25 @@ router.get('/id',
 );
 
 router.get(
-    '/updateProfile',
+    '/gatedUpdateProfile',
     isAuthenticated, // check if user is authenticated
     authProvider.getToken(["User.ReadWrite"]),
     async function (req, res, next) {
-        let doesRequiredMFA = authProvider.doesRequireMFA(req.session.accessToken);
         const graphResponse = await fetch(
             GRAPH_ME_ENDPOINT,
             req.session.accessToken
           );
-        res.render("updateProfile", {
+        res.render("gatedUpdateProfile", {
             profile: graphResponse,
-            doesRequiredMFA: doesRequiredMFA
           });
     }
 );
 
 router.get(
-  '/gatedUpdateProfile',
+  '/updateProfile',
   isAuthenticated, // check if user is authenticated
   authProvider.getToken(["User.ReadWrite", mfaProtectedResourceScope], 
-                        "http://localhost:3000/users/gatedUpdateProfile"), // check for mfa
+                        "http://localhost:3000/users/updateProfile"),
   async function (req, res, next) {
       const graphResponse = await fetch(
           GRAPH_ME_ENDPOINT,
@@ -57,7 +55,6 @@ router.get(
         );
       res.render("updateProfile", {
           profile: graphResponse,
-          doesRequiredMFA: false
         });
   }
 );

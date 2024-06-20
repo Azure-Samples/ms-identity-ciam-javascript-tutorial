@@ -10,7 +10,7 @@
     <label> {{profile.mail}}</label>
     <br/>
     <label for="userName" >Display Name :</label>
-    <input type="text" id="displayName" name="displayName" value="{{profile.displayName}}" />
+    <input type="text" id="displayName" name="displayName" disabled value="{{profile.displayName}}" />
     <br />
     <label for="userName">Given Name :</label>
     <input type="text" id="givenName" name="givenName" value="{{profile.givenName}}" />
@@ -23,6 +23,12 @@
     <button type="submit" id="button">Save</button>
   </form>
 </div>
-<br>
+<div>
+  <br>
+  <br>
+    <a href="/users/updateProfile">
+    <button>Edit</button>
+    </a>
+ </div>
 </div>
 <a href="/">Go back</a>
