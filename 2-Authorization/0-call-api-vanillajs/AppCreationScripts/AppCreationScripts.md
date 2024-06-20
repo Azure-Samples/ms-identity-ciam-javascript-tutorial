@@ -28,7 +28,7 @@
 
 ### Presentation of the scripts
 
-This sample comes with two PowerShell scripts, which automate the creation of the Azure Active Directory applications, and the configuration of the code for this sample. Once you run them, you will only need to build the solution and you are good to test.
+This sample comes with two PowerShell scripts, which automate the creation of the Microsoft Entra applications, and the configuration of the code for this sample. Once you run them, you will only need to build the solution and you are good to test.
 
 These scripts are:
 
@@ -109,9 +109,8 @@ Note that the script will choose the tenant in which to create the applications,
   if you want to create the apps in a particular tenant, you can use the following option:
   
 - Open the [Microsoft Entra admin center](https://entra.microsoft.com/)
-- Select the Azure Active directory you are interested in (in the combo-box below your name on the top right of the browser window)
-- Find the "Active Directory" object in this tenant
-- Go to **Properties** and copy the content of the **Directory Id** property
+- Select the Microsoft Entra tenant you are interested in (in the combo-box below your name on the top right of the browser window)
+- Select **Overview** on the left side menu and then select the **Overview** tab. Copy the content of the **Tenant Id** property
 - Then use the full syntax to run the scripts:
 
 ```PowerShell

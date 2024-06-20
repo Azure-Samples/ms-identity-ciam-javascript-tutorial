@@ -156,7 +156,7 @@ Function ReplaceInTextFile([string] $configFilePath, [System.Collections.HashTab
 Function ConfigureApplications
 {
     <#.Description
-       This function creates the Microsoft Entra applications for the sample in the provided Azure AD tenant and updates the
+       This function creates the Microsoft Entra applications for the sample in the provided external tenant and updates the
        configuration files in the client and service project  of the visual studio solution (App.Config and Web.Config)
        so that they are consistent with the Applications parameters
     #> 
@@ -218,7 +218,7 @@ Function ConfigureApplications
     }
     Write-Host "Done creating the client application (msal-node-headless)"
 
-    # URL of the AAD application in the Azure portal
+    # URL of the AAD application in the Microsoft Entra admin center
     # Future? $clientPortalUrl = "https://portal.azure.com/#@"+$tenantName+"/blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Overview/appId/"+$currentAppId+"/objectId/"+$currentAppObjectId+"/isMSAApp/"
     $clientPortalUrl = "https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Overview/appId/"+$currentAppId+"/isMSAApp~/false"
 
@@ -256,7 +256,7 @@ Function ConfigureApplications
 
     ReplaceInTextFile -configFilePath $configFile -dictionary $dictionary
     Write-Host -ForegroundColor Green "------------------------------------------------------------------------------------------------" 
-    Write-Host "IMPORTANT: Please follow the instructions below to complete a few manual step(s) in the Azure portal":
+    Write-Host "IMPORTANT: Please follow the instructions below to complete a few manual step(s) in the Microsoft Entra admin center":
     Write-Host "- For client"
     Write-Host "  - Navigate to $clientPortalUrl"
     Write-Host "  - The delegated permissions for the 'client' application require admin consent. Do remember to navigate to the application registration in the app portal and consent for those." -ForegroundColor Red 
@@ -304,7 +304,7 @@ if ($null -eq (Get-Module -ListAvailable -Name "Microsoft.Graph.Users")) {
 Import-Module Microsoft.Graph.Users
 
 Set-Content -Value "<html><body><table>" -Path createdApps.html
-Add-Content -Value "<thead><tr><th>Application</th><th>AppId</th><th>Url in the Azure portal</th></tr></thead><tbody>" -Path createdApps.html
+Add-Content -Value "<thead><tr><th>Application</th><th>AppId</th><th>Url in the Microsoft Entra admin center</th></tr></thead><tbody>" -Path createdApps.html
 
 $ErrorActionPreference = "Stop"
 

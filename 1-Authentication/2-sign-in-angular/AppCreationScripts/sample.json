@@ -15,7 +15,7 @@
         "Platform": "JavaScript",
         "Endpoint": "AAD v2.0",
         "Provider": "CIAM",
-        "description": "This sample demonstrates an Angular single-page application (SPA) that uses Microsoft Authentication Library for Angular (MSAL Angular) to sign-in users with Azure Active Directory (Azure AD) and calls Microsoft Graph Api"
+        "description": "This sample demonstrates an Angular single-page application (SPA) that uses Microsoft Authentication Library for Angular (MSAL Angular) to sign-in users with Microsoft Entra and calls Microsoft Graph Api"
     },
     "AADApps": [
         {

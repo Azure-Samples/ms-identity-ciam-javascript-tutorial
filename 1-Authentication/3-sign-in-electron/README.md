@@ -136,9 +136,9 @@ To manually register the apps, as a first step you'll need to:
 
 #### Create User Flows
 
-Please refer to: [Tutorial: Create user flow in Azure Active Directory CIAM](https://github.com/microsoft/entra-previews/blob/PP2/docs/3-Create-sign-up-and-sign-in-user-flow.md)
+Please refer to: [Tutorial: Create user flow in Microsoft Entra External ID](https://github.com/microsoft/entra-previews/blob/PP2/docs/3-Create-sign-up-and-sign-in-user-flow.md)
 
-> :information_source: To enable password reset in Microsoft Entra External ID in Azure Active Directory (Azure AD), please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
+> :information_source: To enable password reset in Microsoft Entra External ID in Microsoft Entra, please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
 
 #### Add External Identity Providers
 
@@ -187,7 +187,7 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 
 1. Open the `App\authConfig.js` file.
 1. Find the two placeholders named `Enter_the_Tenant_Subdomain_Here` and replace them with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `msal-node-desktop` app copied from the Azure portal.
+1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `msal-node-desktop` app copied from the Microsoft Entra admin center.
 
 ### Step 4: Running the sample
 
@@ -217,7 +217,7 @@ Were we successful in addressing your learning objective? Consider taking a mome
 Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before.
 Make sure that your questions or comments are tagged with [`azure-active-directory-b2c` `node` `ms-identity` `adal` `msal-js` `msal`].
 
-To provide feedback on or suggest features for Azure Active Directory, visit [User Voice page](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
+To provide feedback on or suggest features for Microsoft Entra, visit [User Voice page](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 </details>
 
 ## About the code

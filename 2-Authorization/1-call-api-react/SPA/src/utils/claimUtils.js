@@ -14,7 +14,7 @@ export const createClaimsTable = (claims) => {
                 populateClaim(
                     key,
                     claims[key],
-                    "Identifies the intended recipient of the token. In ID tokens, the audience is your app's Application ID, assigned to your app in the Azure portal.",
+                    "Identifies the intended recipient of the token. In ID tokens, the audience is your app's Application ID, assigned to your app in the Microsoft Entra admin center.",
                     index,
                     claimsObj
                 );
@@ -24,7 +24,7 @@ export const createClaimsTable = (claims) => {
                 populateClaim(
                     key,
                     claims[key],
-                    'Identifies the issuer, or authorization server that constructs and returns the token. It also identifies the Azure AD tenant for which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in /v2.0. The GUID that indicates that the user is a consumer user from a Microsoft account is 9188040d-6c67-4c5b-b112-36a304b66dad.',
+                    'Identifies the issuer, or authorization server that constructs and returns the token. It also identifies the external tenant for which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in /v2.0. The GUID that indicates that the user is a consumer user from a Microsoft account is 9188040d-6c67-4c5b-b112-36a304b66dad.',
                     index,
                     claimsObj
                 );
@@ -94,7 +94,7 @@ export const createClaimsTable = (claims) => {
                 populateClaim(
                     key,
                     claims[key],
-                    'The oid (user’s object id) is the only claim that should be used to uniquely identify a user in an Azure AD tenant. The token might have one or more of the following claim, that might seem like a unique identifier, but is not and should not be used as such.',
+                    'The oid (user’s object id) is the only claim that should be used to uniquely identify a user in an external tenant. The token might have one or more of the following claim, that might seem like a unique identifier, but is not and should not be used as such.',
                     index,
                     claimsObj
                 );
@@ -104,7 +104,7 @@ export const createClaimsTable = (claims) => {
                 populateClaim(
                     key,
                     claims[key],
-                    'The tenant ID. You will use this claim to ensure that only users from the current Azure AD tenant can access this app.',
+                    'The tenant ID. You will use this claim to ensure that only users from the current external tenant can access this app.',
                     index,
                     claimsObj
                 );

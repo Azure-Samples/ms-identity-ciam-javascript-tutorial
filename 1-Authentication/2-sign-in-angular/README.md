@@ -1,7 +1,7 @@
 ---
 page_type: sample
 name: Angular single-page application using MSAL Angular to sign-in users against Microsoft Entra External ID
-description: This sample demonstrates an Angular single-page application (SPA) that uses Microsoft Authentication Library for Angular (MSAL Angular) to sign-in users with Azure Active Directory Consumers Identity and Access Management (Microsoft Entra External ID)
+description: This sample demonstrates an Angular single-page application (SPA) that uses Microsoft Authentication Library for Angular (MSAL Angular) to sign-in users with Microsoft Entra Consumers Identity and Access Management (Microsoft Entra External ID)
 languages:
  - javascript
  - typescript
@@ -40,8 +40,6 @@ extensions:
 This sample demonstrates an Angular single-page application (SPA) that lets users sign-in with Microsoft Entra External ID using the [Microsoft Authentication Library for Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular) (MSAL Angular).
 
 Here you'll learn about [ID Tokens](https://docs.microsoft.com/azure/active-directory/develop/id-tokens), [OIDC scopes](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes), [single-sign on](https://docs.microsoft.com/azure/active-directory/develop/msal-js-sso), **silent requests** and more.
-
-> :information_source: To learn how to integrate a JavaScript Angular application with Azure AD,consider going through the recorded session: [Deep dive on using MSAL.js to integrate Angular single-page applications with Azure Active Directory](https://www.youtube.com/watch?v=EJey9KP1dZA)
 
 ## Scenario
 
@@ -131,9 +129,9 @@ To manually register the apps, as a first step you'll need to:
 
 #### Create User Flows
 
-Please refer to: [Tutorial: Create user flow in Azure Active Directory CIAM](https://github.com/microsoft/entra-previews/blob/PP2/docs/3-Create-sign-up-and-sign-in-user-flow.md)
+Please refer to: [Tutorial: Create user flow in Microsoft Entra External ID](https://github.com/microsoft/entra-previews/blob/PP2/docs/3-Create-sign-up-and-sign-in-user-flow.md)
 
-> :information_source: To enable password reset in Microsoft Entra External ID in Azure Active Directory (Azure AD), please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
+> :information_source: To enable password reset in Microsoft Entra External ID in Microsoft Entra, please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
 
 #### Add External Identity Providers
 
@@ -172,7 +170,7 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `SPA\src\app\auth-config.ts` file.
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-angular-spa` app copied from the Azure portal.
+1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-angular-spa` app copied from the Microsoft Entra admin center.
 1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).
 
 ### Step 4: Running the sample
@@ -204,7 +202,7 @@ Were we successful in addressing your learning objective? Consider taking a mome
 Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before.
 Make sure that your questions or comments are tagged with [`azure-active-directory-b2c` `node` `ms-identity` `adal` `msal-js` `msal`].
 
-To provide feedback on or suggest features for Azure Active Directory, visit [User Voice page](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
+To provide feedback on or suggest features for Microsoft Entra, visit [User Voice page](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 </details>
 
 ## About the code
@@ -376,7 +374,7 @@ Build your project to get a distributable files folder, where your built `html`,
 1. Select **Enabled** to enable static website hosting for the storage account.
 1. In the **Index document name** field, specify a default index page (For example: `index.html`).
 1. The default **index page** is displayed when a user navigates to the root of your static website.
-1. Select **Save**. The Azure portal now displays your static website endpoint. Make a note of the **Primary endpoint field**.
+1. Select **Save**. The Microsoft Entra admin center now displays your static website endpoint. Make a note of the **Primary endpoint field**.
 1. In the `ciam-msal-angular-spa` project source code, update your configuration file with the **Primary endpoint field** as your new **Redirect URI** (you will register this URI later).
 1. Next, select **Storage Explorer**.
 1. Expand the **BLOB CONTAINERS** node, and then select the `$web` container.
@@ -387,7 +385,7 @@ Build your project to get a distributable files folder, where your built `html`,
 #### Update the CIAM app registration for ciam-msal-angular-spa
 
 1. Navigate back to to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations**.
+1. In the left-hand navigation pane, select the **Microsoft Entra** service, and then select **App registrations**.
 1. In the resulting screen, select `ciam-msal-angular-spa`.
 1. In the app's registration screen, select **Authentication** in the menu.
    1. In the **Redirect URIs** section, update the reply URLs to match the site URL of your Azure deployment. For example:

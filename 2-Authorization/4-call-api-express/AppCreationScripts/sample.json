@@ -10,7 +10,7 @@
         "Endpoint": "AAD v2.0",
         "Provider": "CIAM",
         "Platform": "JavaScript",
-        "description": "This sample demonstrates a Node.js & Express web app authenticating users against Azure Active Directory Customer Identity Access Management (Microsoft Entra External ID) with Microsoft Authentication Library for Node (MSAL Node) and call a protected ASP.NET Core web API"
+        "description": "This sample demonstrates a Node.js & Express web app authenticating users against Microsoft Entra External ID with Microsoft Authentication Library for Node (MSAL Node) and call a protected ASP.NET Core web API"
     },
     "AADApps": [
         {

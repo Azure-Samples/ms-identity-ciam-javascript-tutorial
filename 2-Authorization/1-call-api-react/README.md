@@ -46,8 +46,6 @@ This sample demonstrates a React single-page application (SPA) that lets users s
 
 Here you'll learn about [access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens), [token validation](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens), [CORS configuration](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services#understanding-cors-requests), **silent requests** and more.
 
-> :information_source: To learn how to integrate a JavaScript React application with Azure AD, consider going through the recorded session: [Deep dive on using MSAL.js to integrate React single-page applications with Azure Active Directory](https://www.youtube.com/watch?v=7oPSL5wWeS0)
-
 ## Scenario
 
 1. The client React SPA uses the  to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) and an [Access Token](https://aka.ms/access-tokens) from **Microsoft Entra External ID**.
@@ -95,7 +93,7 @@ npm install
 
 ### Step 3: Register the sample application(s) in your tenant
 
-There are two projects in this sample. Each needs to be separately registered in your Azure AD tenant. To register these projects, you can:
+There are two projects in this sample. Each needs to be separately registered in your external tenant. To register these projects, you can:
 
 * follow the steps below for manually register your apps
 * or use PowerShell scripts that:
@@ -129,9 +127,9 @@ To manually register the apps, as a first step you'll need to:
 
 #### Create User Flows
 
-Please refer to: [Tutorial: Create user flow in Azure Active Directory CIAM](https://github.com/microsoft/entra-previews/blob/PP2/docs/3-Create-sign-up-and-sign-in-user-flow.md)
+Please refer to: [Tutorial: Create user flow in Microsoft Entra External ID](https://github.com/microsoft/entra-previews/blob/PP2/docs/3-Create-sign-up-and-sign-in-user-flow.md)
 
-> :information_source: To enable password reset in Microsoft Entra External ID in Azure Active Directory (Azure AD), please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
+> :information_source: To enable password reset in Microsoft Entra External ID in Microsoft Entra, please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
 
 #### Add External Identity Providers
 
@@ -198,8 +196,8 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `API\ToDoListAPI\appsettings.json` file.
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Azure portal.
-1. Find the key `Enter_the_Tenant_Id_Here` and replace the existing value with your Azure AD tenant/directory ID.
+1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Microsoft Entra admin center.
+1. Find the key `Enter_the_Tenant_Id_Here` and replace the existing value with your external tenant/directory ID.
 1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).
 
 #### Register the client app (ciam-msal-react-spa)
@@ -238,9 +236,9 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `SPA\src\authConfig.js` file.
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-react-spa` app copied from the Azure portal.
+1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-react-spa` app copied from the Microsoft Entra admin center.
 1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).
-1. Find the key `Enter_the_Web_Api_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Azure portal.
+1. Find the key `Enter_the_Web_Api_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Microsoft Entra admin center.
 
 ### Step 4: Running the sample
 
@@ -437,7 +435,7 @@ Build your project to get a distributable files folder, where your built `html`,
 1. Select **Enabled** to enable static website hosting for the storage account.
 1. In the **Index document name** field, specify a default index page (For example: `index.html`).
 1. The default **index page** is displayed when a user navigates to the root of your static website.
-1. Select **Save**. The Azure portal now displays your static website endpoint. Make a note of the **Primary endpoint field**.
+1. Select **Save**. The Microsoft Entra admin center now displays your static website endpoint. Make a note of the **Primary endpoint field**.
 1. In the `ciam-msal-react-spa` project source code, update your configuration file with the **Primary endpoint field** as your new **Redirect URI** (you will register this URI later).
 1. Next, select **Storage Explorer**.
 1. Expand the **BLOB CONTAINERS** node, and then select the `$web` container.
@@ -448,7 +446,7 @@ Build your project to get a distributable files folder, where your built `html`,
 #### Update the CIAM app registration for ciam-msal-react-spa
 
 1. Navigate back to to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations**.
+1. In the left-hand navigation pane, select the **Microsoft Entra** service, and then select **App registrations**.
 1. In the resulting screen, select `ciam-msal-react-spa`.
 1. In the app's registration screen, select **Authentication** in the menu.
    1. In the **Redirect URIs** section, update the reply URLs to match the site URL of your Azure deployment. For example:

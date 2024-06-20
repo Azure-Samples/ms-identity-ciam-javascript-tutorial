@@ -26,7 +26,7 @@ public class ToDoListController : ControllerBase
 
     /// <summary>
     /// The 'oid' (object id) is the only claim that should be used to uniquely identify
-    /// a user in an Azure AD tenant. The token might have one or more of the following claim,
+    /// a user in an external tenant. The token might have one or more of the following claim,
     /// that might seem like a unique identifier, but is not and should not be used as such:
     ///
     /// - upn (user principal name): might be unique amongst the active set of users in a tenant

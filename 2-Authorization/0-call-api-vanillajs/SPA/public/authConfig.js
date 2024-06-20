@@ -7,7 +7,7 @@ const msalConfig = {
     auth: {
         clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
         authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace the placeholder with your tenant name
-        redirectUri: '/', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.href e.g. http://localhost:3000/,
+        redirectUri: '/', // You must register this URI on Microsoft Entra admin center/App Registration. Defaults to window.location.href e.g. http://localhost:3000/,
         postLogoutRedirectUri: '/', // Indicates the page to navigate after logout.
     },
     cache: {

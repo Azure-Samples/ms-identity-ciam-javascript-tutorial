@@ -97,9 +97,9 @@ You can use Azure Key Vault to generate a self-signed certificate for you. Doing
 > ```
 
 <details>
-<summary>Click here to use Azure Portal</summary>
+<summary>Click here to use Microsoft Entra admin center</summary>
 
-Follow the guide: [Set and retrieve a certificate from Azure Key Vault using the Azure portal](https://learn.microsoft.com/azure/key-vault/certificates/quick-create-portal)
+Follow the guide: [Set and retrieve a certificate from Azure Key Vault using the Microsoft Entra admin center](https://learn.microsoft.com/azure/key-vault/certificates/quick-create-portal)
 
 Afterwards, proceed to [Step 2](#configure-an-azure-ad-app-registration-to-use-a-certificate).
 
