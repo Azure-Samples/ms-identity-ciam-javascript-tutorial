@@ -46,8 +46,8 @@ Here you'll learn how to sign-in users and acquire [ID tokens](https://docs.micr
 
 ## Scenario
 
-1. The client Electron desktop app uses the to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) and an [Access Token](https://aka.ms/access-tokens) from **Azure AD for Customers**.
-1. The **access token** is used as a *bearer* token to authorize the user to call the Microsoft Graph protected by **Azure AD for Customers**.
+1. The client Electron desktop app uses the to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) and an [Access Token](https://aka.ms/access-tokens) from **Microsoft Entra External ID**.
+1. The **access token** is used as a *bearer* token to authorize the user to call the Microsoft Graph protected by **Microsoft Entra External ID**.
 
 ![Scenario Image](./ReadmeFiles/topology.png)
 
@@ -71,7 +71,7 @@ Here you'll learn how to sign-in users and acquire [ID tokens](https://docs.micr
 * An * An **external Microsoft Entra ID** tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/create-new-tenant)
 * A user account in your **external Microsoft Entra ID** tenant.
 
->This sample will not work with a **personal Microsoft account**. If you're signed in to the [Azure portal](https://portal.azure.com) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
+>This sample will not work with a **personal Microsoft account**. If you're signed in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
 
 ## Setup the sample
 
@@ -100,7 +100,7 @@ There is one project in this sample. To register it, you can:
 
 * follow the steps below to manually register your app
 * or use PowerShell scripts that:
-  * **automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
+  * **automatically** creates the Microsoft Entra applications and related objects (passwords, permissions, dependencies) for you.
   * modify the projects' configuration files.
 
 <details>
@@ -127,18 +127,18 @@ There is one project in this sample. To register it, you can:
 
 </details>
 
-#### Choose the Azure AD for Customers tenant where you want to create your applications
+#### Choose the Microsoft Entra External ID tenant where you want to create your applications
 
 To manually register the apps, as a first step you'll need to:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If your account is present in more than one Azure AD for Customers tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD for Customers tenant.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. If your account is present in more than one Microsoft Entra External ID tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra External ID tenant.
 
 #### Create User Flows
 
 Please refer to: [Tutorial: Create a sign-up and sign-in user flow](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers)
 
-> :information_source: To enable password reset in an external tenant, please refer to: [Tutorial: Add self-service password reset](https://learn.microsoft.com/en-us/entra/external-id/customers/tutorial-native-authentication-android-self-service-password-reset)
+> :information_source: To enable password reset in an external tenant, please refer to: [Tutorial: Enable users to unlock their account or reset passwords using Microsoft Entra self-service password reset](https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr)
 
 #### Add External Identity Providers
 
@@ -149,7 +149,7 @@ Please refer to:
 
 #### Register the client app (msal-node-desktop)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure AD for Customers** service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/) and select the **Microsoft Entra External ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `msal-node-desktop`.
@@ -168,7 +168,7 @@ Please refer to:
     1. In the *Commonly used Microsoft APIs* section, select **Microsoft Graph**
     1. In the **Delegated permissions** section, select **openid**, **offline_access** in the list. Use the search box if necessary.
     1. Select the **Add permissions** button at the bottom.
-1. At this stage, the permissions are assigned correctly, but since it's a CIAM tenant, the users themselves cannot consent to these permissions. To get around this problem, we'd let the [tenant administrator consent on behalf of all users in the tenant](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent). Select the **Grant admin consent for {tenant}** button, and then select **Yes** when you are asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a tenant admin to be able to carry out this operation.
+1. At this stage, the permissions are assigned correctly, but since it's an external tenant, the users themselves cannot consent to these permissions. To get around this problem, we'd let the [tenant administrator consent on behalf of all users in the tenant](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent). Select the **Grant admin consent for {tenant}** button, and then select **Yes** when you are asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a tenant admin to be able to carry out this operation.
 
 ##### Configure Optional Claims
 
@@ -187,7 +187,7 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 
 1. Open the `App\authConfig.js` file.
 1. Find the two placeholders named `Enter_the_Tenant_Subdomain_Here` and replace them with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `msal-node-desktop` app copied from the Azure portal.
+1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `msal-node-desktop` app copied from the Microsoft Entra admin center.
 
 ### Step 4: Running the sample
 
@@ -217,7 +217,7 @@ Were we successful in addressing your learning objective? Consider taking a mome
 Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before.
 Make sure that your questions or comments are tagged with [`azure-active-directory-b2c` `node` `ms-identity` `adal` `msal-js` `msal`].
 
-To provide feedback on or suggest features for Azure Active Directory, visit [User Voice page](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
+To provide feedback on or suggest features for Microsoft Entra, visit [User Voice page](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 </details>
 
 ## About the code
@@ -285,7 +285,7 @@ async getTokenSilent(tokenRequest) {
 
 ### Sign-out
 
-Use the [logout endpoint](https://learn.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#send-a-sign-out-request) to end the user's session with **Azure AD for Customers**. You'll need to enable the [optional token claim](https://learn.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) 'login_hint' to work as expected. After that, we will use the `removeAccount()` API to remove the user account from the in-memory cache.
+Use the [logout endpoint](https://learn.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#send-a-sign-out-request) to end the user's session with **Microsoft Entra External ID**. You'll need to enable the [optional token claim](https://learn.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) 'login_hint' to work as expected. After that, we will use the `removeAccount()` API to remove the user account from the in-memory cache.
 
 ```javascript
 async logout() {

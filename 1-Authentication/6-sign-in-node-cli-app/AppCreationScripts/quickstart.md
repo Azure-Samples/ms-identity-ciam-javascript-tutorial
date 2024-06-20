@@ -14,7 +14,7 @@ ms.date: 04/19/2023
 ---
 # Portal quickstart for Node.js console app
 
-> In this quickstart, you download and run a code sample that demonstrates how a Node.js console (cli) app can sign in users with Azure AD for Customers.
+> In this quickstart, you download and run a code sample that demonstrates how a Node.js console (cli) app can sign in users with Microsoft Entra External ID.
 >
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 >
