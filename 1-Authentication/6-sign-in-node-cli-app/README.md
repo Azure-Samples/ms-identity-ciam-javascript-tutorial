@@ -37,7 +37,7 @@ extensions:
 
 ## Overview
 
-This sample demonstrates a Node CLI application that authenticates users against [Customer Identity Access Management](https://github.com/microsoft/entra-previews/tree/PP2/docs) (CIAM), using the [Microsoft Authentication Library for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node/docs) (MSAL Node).
+This sample demonstrates a Node CLI application that authenticates users against [Microsoft Entra External ID](https://learn.microsoft.com/en-us/entra/identity-platform/v2-overview), using the [Microsoft Authentication Library for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node/docs) (MSAL Node).
 
 Here you'll learn how to sign-in users and acquire [ID tokens](https://docs.microsoft.com/azure/active-directory/develop/id-tokens).
 
@@ -61,8 +61,8 @@ Here you'll learn how to sign-in users and acquire [ID tokens](https://docs.micr
 * [Visual Studio Code](https://code.visualstudio.com/download) is recommended for running and editing this sample.
 * [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
 * A modern web browser.
-* An **Azure AD for Customers** tenant. For more information, see: [How to get an Azure AD for Customers tenant](https://github.com/microsoft/entra-previews/blob/PP2/docs/1-Create-a-CIAM-tenant.md)
-* A user account in your **Azure AD for Customers** tenant.
+* An * A **external Microsoft Entra ID** tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/create-new-tenant)
+* A user account in your **external Microsoft Entra ID** tenant.
 
 ## Setup the sample
 
@@ -123,7 +123,7 @@ To manually register the apps, as a first step you'll need to:
 
 Please refer to: [Tutorial: Create a sign-up and sign-in user flow](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers)
 
-> :information_source: To enable password reset in Customer Identity Access Management (CIAM) in Azure Active Directory (Azure AD), please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
+> :information_source: To enable password reset in an external tenant, please refer to: [Tutorial: Add self-service password reset](https://learn.microsoft.com/en-us/entra/external-id/customers/tutorial-native-authentication-android-self-service-password-reset)
 
 #### Add External Identity Providers
 
@@ -255,14 +255,14 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## Learn More
 
-* [Customize the default branding](https://github.com/microsoft/entra-previews/blob/PP2/docs/5-Customize-default-branding.md)
-* [OAuth 2.0 device authorization grant flow](https://github.com/microsoft/entra-previews/blob/PP2/docs/9-OAuth2-device-code.md)
-* [Customize sign-in strings](https://github.com/microsoft/entra-previews/blob/PP2/docs/8-Customize-sign-in-strings.md)
+* [Configure your company branding](https://learn.microsoft.com/en-us/entra/fundamentals/how-to-customize-branding)
+* [OAuth 2.0 authorization with Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/architecture/auth-oauth2)
+* [Language customization in Microsoft Entra External ID](https://learn.microsoft.com/en-us/entra/external-id/user-flow-customize-language)
 * [Building Zero Trust ready apps](https://aka.ms/ztdevsession)
-* [Initialize client applications using MSAL.js](https://docs.microsoft.com/azure/active-directory/develop/msal-js-initializing-client-applications)
-* [Single sign-on with MSAL.js](https://docs.microsoft.com/azure/active-directory/develop/msal-js-sso)
+* [Initialize client applications using MSAL.js](https://learn.microsoft.com/en-us/entra/identity-platform/msal-js-initializing-client-applications)
+* [Single sign-on with MSAL.js](https://learn.microsoft.com/en-us/entra/identity-platform/msal-js-sso)
 * [Handle MSAL.js exceptions and errors](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=javascript)
-* [Logging in MSAL.js applications](https://docs.microsoft.com/azure/active-directory/develop/msal-logging?tabs=javascript)
-* [Pass custom state in authentication requests using MSAL.js](https://docs.microsoft.com/azure/active-directory/develop/msal-js-pass-custom-state-authentication-request)
-* [Prompt behavior in MSAL.js interactive requests](https://docs.microsoft.com/azure/active-directory/develop/msal-js-prompt-behavior)
-* [Use MSAL.js to work with Azure AD B2C](https://docs.microsoft.com/azure/active-directory/develop/msal-b2c-overview)
+* [Logging in MSAL.js applications](https://learn.microsoft.com/en-us/entra/identity-platform/msal-logging-js)
+* [Pass custom state in authentication requests using MSAL.js](https://learn.microsoft.com/en-us/entra/identity-platform/msal-js-pass-custom-state-authentication-request)
+* [Prompt behavior in MSAL.js interactive requests](https://learn.microsoft.com/en-us/entra/identity-platform/msal-js-prompt-behavior)
+* [Use the Microsoft Authentication Library for JavaScript to work with Azure AD B2C](https://learn.microsoft.com/en-us/entra/identity-platform/msal-b2c-overview)
