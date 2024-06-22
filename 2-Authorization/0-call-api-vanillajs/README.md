@@ -94,7 +94,7 @@ or download and extract the repository *.zip* file.
     npm install
 ```
 
-### Step 3: Register the sample application(s) in your tenant
+### Step 3: Register the sample applications in your tenant
 
 There are two projects in this sample. Each needs to be separately registered in your external tenant. To register these projects, you can:
 
@@ -157,7 +157,7 @@ Please refer to:
 ##### Publish Delegated Permissions
 
 1. All APIs must publish a minimum of one [scope](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code), also called [Delegated Permission](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#permission-types), for the client apps to obtain an access token for a *user* successfully. To publish a scope, follow these steps:
-1. Select **Add a scope** button open the **Add a scope** screen and Enter the values as indicated below:
+1. Select **Add a scope** button open the **Add a scope** screen and enter the values as indicated below:
     1. For **Scope name**, use `ToDoList.Read`.
     1. For **Admin consent display name** type in *ToDoList.Read*.
     1. For **Admin consent description** type in *e.g. Allows the app to read the signed-in user's files.*.
@@ -179,6 +179,7 @@ Please refer to:
     1. For **Allowed member types**, choose **Application** to ensure other applications can be granted this permission.
     1. For **Value**, enter **ToDoList.Read.All**.
     1. For **Description**, enter *e.g. Allows the app to read the signed-in user's files.*.
+    1. Check the box for **Do you want to enable this app role?**
     1. Select **Apply** to save your changes.
     1. Repeat the steps above for another app permission named **ToDoList.ReadWrite.All**
 
@@ -198,9 +199,9 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `API\ToDoListAPI\appsettings.json` file.
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Microsoft Entra admin center.
-1. Find the key `Enter_the_Tenant_Id_Here` and replace the existing value with your external tenant/directory ID.
 1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).
+1. Find the key `Enter_the_Tenant_Id_Here` and replace the existing value with your external tenant/directory ID.
+1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Microsoft Entra admin center.
 
 #### Register the client app (ciam-msal-javascript-spa)
 
@@ -212,11 +213,10 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
     1. Select **Register** to create the application.
 1. In the **Overview** blade, find and note the **Application (client) ID**. You use this value in your app's configuration file(s) later in your code.
 1. In the app's registration screen, select the **Authentication** blade to the left.
-1. If you don't have a platform added, select **Add a platform** and select the **Single-page application** option.
-    1. In the **Redirect URI** section enter the following redirect URIs:
+1. Select **Authentication** and then **Add a URI**. Select the **Single-page application** option.
+    1. In the **Redirect URI** section enter the following redirect URI:
         1. `http://localhost:3000`
-        1. `http://localhost:3000/redirect`
-    1. Select **Configure**
+    1. Repeat for `http://localhost:3000/redirect`
     1. Select **Save** to save your changes.
 1. Since this app signs-in users, we will now proceed to select **delegated permissions**, which is is required by apps signing-in users.
     1. In the app's registration screen, select the **API permissions** blade in the left to open the page where we add access to the APIs that your application needs:
@@ -224,9 +224,8 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
     1. Ensure that the **Microsoft APIs** tab is selected.
     1. In the *Commonly used Microsoft APIs* section, select **Microsoft Graph**
     1. In the **Delegated permissions** section, select **openid**, **offline_access** in the list. Use the search box if necessary.
-    1. Select the **Add permissions** button at the bottom.
     1. Select the **Add a permission** button and then:
-    1. Ensure that the **My APIs** tab is selected.
+    1. Ensure that the **APIs my organization uses** tab is selected.
     1. In the list of APIs, select the API `ciam-msal-dotnet-api`.
     1. In the **Delegated permissions** section, select **ToDoList.Read**, **ToDoList.ReadWrite** in the list. Use the search box if necessary.
     1. Select the **Add permissions** button at the bottom.
@@ -240,7 +239,9 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 
 1. Open the `SPA\public\authConfig.js` file.
 1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-javascript-spa` app copied from the Microsoft Entra admin center.
-1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).`Enter_the_Web_Api_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Microsoft Entra admin center.
+1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).
+1. Find the placeholder `Enter_The_Tenant_Id_Here` and replace the existing value with your external tenant/directory ID.
+1. `Enter_the_Web_Api_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Microsoft Entra admin center.
 
 ### Step 4: Running the sample
 
