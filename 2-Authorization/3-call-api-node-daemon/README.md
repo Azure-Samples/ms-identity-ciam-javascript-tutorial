@@ -68,7 +68,7 @@ Here you'll learn about [access tokens](https://docs.microsoft.com/azure/active-
 
 * Either [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [Visual Studio Code](https://code.visualstudio.com/download) and [.NET Core SDK](https://www.microsoft.com/net/learn/get-started)
  * An external tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant)
-* A user account in * An external tenantyour *external tenant.
+* A user account in * An external tenant.
 
 ## Setup the sample
 
