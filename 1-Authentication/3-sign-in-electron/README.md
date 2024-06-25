@@ -69,7 +69,7 @@ Here you'll learn how to sign-in users and acquire [ID tokens](https://docs.micr
 * [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
 * A modern web browser.
  * An external tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant)
-* A user account in * An external tenant.
+* A user an external tenant.
 
 >This sample will not work with a **personal Microsoft account**. If you're signed in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
 

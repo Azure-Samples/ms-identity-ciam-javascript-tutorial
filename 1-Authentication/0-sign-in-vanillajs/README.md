@@ -64,7 +64,7 @@ Here you'll learn about [ID Tokens](https://docs.microsoft.com/azure/active-dire
 * [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
 * A modern web browser.
 * An external tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant)
-* A user account with permissions to create applications in * An external tenant.
+* A user account with permissions to an external tenant.
 
 ## Setup the sample
 
