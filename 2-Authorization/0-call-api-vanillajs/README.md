@@ -70,8 +70,8 @@ Here you'll learn about [access tokens](https://docs.microsoft.com/azure/active-
 * [Visual Studio Code](https://code.visualstudio.com/download) is recommended for running and editing this sample.
 * [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
 * A modern web browser.
- * An **external Microsoft Entra ID** tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant)
-* A user account in your **external Microsoft Entra ID** tenant.
+ * An external tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant)
+* A user account in * An external tenantyour *external tenant.
 
 ## Setup the sample
 

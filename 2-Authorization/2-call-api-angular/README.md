@@ -69,8 +69,8 @@ Here you'll learn about [access tokens](https://docs.microsoft.com/azure/active-
 ## Prerequisites
 
 * Either [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [Visual Studio Code](https://code.visualstudio.com/download) and [.NET Core SDK](https://www.microsoft.com/net/learn/get-started)
- * An **external Microsoft Entra ID** tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant)
-* A user account with permissions to create applications in your **external Microsoft Entra ID** tenant.
+ * An external tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant)
+* A user account with permissions to create applications in * An external tenantyour *external tenant.
 
 ## Setup the sample
 
