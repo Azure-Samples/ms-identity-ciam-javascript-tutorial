@@ -12,8 +12,10 @@ import { LogLevel } from "@azure/msal-browser";
  */
 export const msalConfig = {
     auth: {
-        clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
-        authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace the placeholder with your tenant subdomain
+        clientId: '778d2a8d-7649-42a2-a694-3dc44cb77d50', // This is the ONLY mandatory field that you need to supply.
+        authority: 'https://TrialTenantkwFwHYij.ciamlogin.com/', // Replace the placeholder with your tenant subdomain
+        // clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
+        // authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace the placeholder with your tenant subdomain
         redirectUri: '/', // You must register this URI on Microsoft Entra admin center/App Registration. Defaults to window.location.origin
         postLogoutRedirectUri: '/', // Indicates the page to navigate after logout.
     },
@@ -60,8 +62,10 @@ export const protectedResources = {
     toDoListAPI: {
         endpoint: 'https://localhost:44351/api/todolist',
         scopes: {
-            read: ['api://Enter_the_Web_Api_Application_Id_Here/ToDoList.Read'],
-            write: ['api://Enter_the_Web_Api_Application_Id_Here/ToDoList.ReadWrite'],
+            // read: ['api://Enter_the_Web_Api_Application_Id_Here/ToDoList.Read'],
+            // write: ['api://Enter_the_Web_Api_Application_Id_Here/ToDoList.ReadWrite'],
+            read: ['api://9c41be2b-d52d-4209-b987-1459a3d62d99/ToDoList.Read'],
+            write: ['api://9c41be2b-d52d-4209-b987-1459a3d62d99/ToDoList.ReadWrite'],
         },
     },
 };
