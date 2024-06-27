@@ -16,8 +16,8 @@ const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigato
  */
 export const msalConfig: Configuration = {
     auth: {
-        clientId: '4c07ea59-950f-4fb3-bbef-8001476d873b', // This is the ONLY mandatory field that you need to supply.
-        authority: 'https://TrialTenantkwFwHYij.ciamlogin.com/', // Replace the placeholder with your tenant subdomain
+        clientId: 'Enter_the_Application_Id_Here', // Replace the placeholder with your application ID
+        authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace the placeholder with your tenant subdomain
         redirectUri: '/auth', // Points to window.location.origin by default. You must register this URI on Microsoft Entra admin center/App Registration.
         postLogoutRedirectUri: '/', // Points to window.location.origin by default
     },
@@ -48,8 +48,8 @@ export const protectedResources = {
     toDoListAPI: {
         endpoint: 'https://localhost:44351/api/todolist',
         scopes: {
-            read: ['api://9c41be2b-d52d-4209-b987-1459a3d62d99/ToDoList.Read'],
-            write: ['api://9c41be2b-d52d-4209-b987-1459a3d62d99/ToDoList.ReadWrite'],
+            read: ['api://Enter_the_Web_Api_Application_Id_Here/ToDoList.Read'],
+            write: ['api://Enter_the_Web_Api_Application_Id_Here/ToDoList.ReadWrite'],
         },
     },
 };
