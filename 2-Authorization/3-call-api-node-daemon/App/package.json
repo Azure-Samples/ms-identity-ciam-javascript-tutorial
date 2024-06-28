@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "bin": {
     "msal-node-cli": "index.js"
   },
@@ -11,9 +12,8 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@azure/msal-node": "^2.7.0",
-    "axios": "^1.6.8",
-    "dotenv": "^16.4.5",
-    "yargs": "^17.7.2"
+    "@azure/msal-node": "^2.9.2",
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5"
   }
 }

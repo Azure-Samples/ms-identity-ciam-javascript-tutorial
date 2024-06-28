@@ -3,8 +3,8 @@
  * Licensed under the MIT License.
  */
 
-require('dotenv').config();
-const fs = require('fs');
+import 'dotenv/config';
+import 'fs';
 
 /**
  * Configuration object to be passed to MSAL instance on creation.
@@ -12,7 +12,7 @@ const fs = require('fs');
  * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md
  */
 
-const msalConfig = {
+export const msalConfig = {
     auth: {
         clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Microsoft Entra admin center - this value is a GUID
         authority: process.env.AUTHORITY || 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace the placeholder with your tenant subdomain
@@ -33,14 +33,9 @@ const msalConfig = {
     },
 };
 
-const protectedResources = {
+export const protectedResources = {
     apiToDoList: {
         endpoint: process.env.API_ENDPOINT || 'https://localhost:44351/api/todolist',
         scopes: [process.env.SCOPES || 'api://Enter_the_Web_Api_Application_Id_Here'],
     },
-};
-
-module.exports = {
-    msalConfig,
-    protectedResources,
 };

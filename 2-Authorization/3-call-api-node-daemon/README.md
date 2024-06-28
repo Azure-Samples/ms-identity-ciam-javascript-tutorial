@@ -201,14 +201,14 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 1. In the app's registration screen, select the **Certificates & secrets** blade in the left to open the page where you can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**:
     1. Type a key description (for instance `app secret`).
-    1. Select one of the available key durations (**6 months**, **12 months** or **Custom**) as per your security posture.
-    1. The generated key value will be displayed when you select the **Add** button. Copy and save the generated value for use in later steps.
+    1. Select one of the available key durations (**6 months**, **12 months** or **Custom**) as per your security policy.
+    1. The generated key value will be displayed when you select the **Add** button. Copy and save the generated value (not the key) for use in later steps.
     1. You'll need this key later in your code's configuration files. This key value will not be displayed again, and is not retrievable by any other means, so make sure to note it from the Microsoft Entra admin center before navigating to any other screen or blade.
     > :warning: For enhanced security, consider using **certificates** instead of client secrets. See: [How to use certificates instead of secrets](./README-use-certificate.md).
 1. Since this app signs-in as itself using the [OAuth 2\.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), we will now proceed to select **application permissions**, which is required by apps authenticating as themselves.
     1. In the app's registration screen, select the **API permissions** blade in the left to open the page where we add access to the APIs that your application needs:
     1. Select the **Add a permission** button and then:
-    1. Ensure that the **My APIs** tab is selected.
+    1. Ensure that the **APIs my organization uses** tab is selected.
     1. In the list of APIs, select the API `ciam-msal-dotnet-api`.
         1. We will select “Application permissions”, which should be the type of permissions that apps should use when they are authenticating just as themselves and not signing-in users.
     1. In the **Application permissions** section, select the **ToDoList.Read.All**, **ToDoList.ReadWrite.All** in the list. Use the search box if necessary.
@@ -240,13 +240,13 @@ Then, open a separate command terminal and run:
 
 ```console
     2-Authorization\3-call-api-node-daemon\App
-    node . --op getToDos
+    node .
 ```
 
 ## Explore the sample
 
 1. Navigate to the [app](./App/) root directory in the terminal.
-1. Enter the following command `node . --op getToDos`.
+1. Enter the following command `node .`.
 
 ![Screenshot](./ReadmeFiles/Screenshot.png)
 
