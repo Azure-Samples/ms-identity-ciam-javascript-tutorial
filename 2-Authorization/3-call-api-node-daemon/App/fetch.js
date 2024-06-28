@@ -1,11 +1,11 @@
-const axios = require('axios');
+import axios from 'axios';
 
 /**
  * Calls the endpoint with authorization bearer token.
  * @param {string} endpoint 
  * @param {string} accessToken 
  */
-async function callApi(endpoint, accessToken) {
+export async function callApi(endpoint, accessToken) {
 
     const options = {
         headers: {
@@ -22,8 +22,4 @@ async function callApi(endpoint, accessToken) {
         console.log(error)
         return error;
     }
-};
-
-module.exports = {
-    callApi: callApi
 };
