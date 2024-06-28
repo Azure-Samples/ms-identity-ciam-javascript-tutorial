@@ -8,8 +8,8 @@
   "author": "Microsoft",
   "license": "MIT",
   "dependencies": {
-    "@azure/msal-node": "^2.7.0",
-    "axios": "^1.6.8",
+    "@azure/msal-node": "^2.9.2",
+    "axios": "^1.7.2",
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
