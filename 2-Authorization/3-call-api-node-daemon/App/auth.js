@@ -9,14 +9,16 @@ import { msalConfig, protectedResources } from './authConfig.js';
  * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
  */
 export const tokenRequest = {
+    // scopes: [`${protectedResources.apiToDoList.scope}/.default`], // tried this in case the array format in authConfig was throwing things off.
     scopes: [`${protectedResources.apiToDoList.scopes}/.default`],
+    authority: msalConfig.auth.authority,
+// this doesn't help
+    // skipCache: true,
 };
 
 export const apiConfig = {
     uri: protectedResources.apiToDoList.endpoint,
 };
-
-
 
 /**
  * Initialize a confidential client application. For more info, visit:
