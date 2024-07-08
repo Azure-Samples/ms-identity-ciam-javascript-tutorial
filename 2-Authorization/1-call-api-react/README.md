@@ -245,7 +245,7 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 From your shell or command line, execute the following commands:
 
 ```console
-    cd 2-Authorization\1-call-api-react\API
+    cd 2-Authorization\1-call-api-react\API\ToDoListAPI
     dotnet run
 ```
 
