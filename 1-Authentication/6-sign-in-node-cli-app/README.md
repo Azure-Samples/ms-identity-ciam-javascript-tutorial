@@ -61,7 +61,7 @@ Here you'll learn how to sign-in users and acquire [ID tokens](https://docs.micr
 * [Visual Studio Code](https://code.visualstudio.com/download) is recommended for running and editing this sample.
 * [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
 * A modern web browser.
- * An external tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant)
+ * An external tenant. For more information, see: [Create a new external tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/external-id/customers/how-to-create-external-tenant-portal)
 * A user an external tenant.
 
 ## Setup the sample

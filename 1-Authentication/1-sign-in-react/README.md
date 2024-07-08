@@ -62,7 +62,7 @@ Here you'll learn how to [sign-in](https://docs.microsoft.com/azure/active-direc
 * [Node.js](https://nodejs.org/en/download/) must be installed to run this sample.
 * [Visual Studio Code](https://code.visualstudio.com/download) is recommended for running and editing this sample.
 * [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
- * An external tenant. For more information, see: [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant)
+ * An external tenant. For more information, see: [Create a new external tenant in Microsoft Entra ID]https://learn.microsoft.com/entra/external-id/customers/how-to-create-external-tenant-portal)
 * A user an external tenant.
 
 >This sample will not work with a **personal Microsoft account**. If you're signed in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
