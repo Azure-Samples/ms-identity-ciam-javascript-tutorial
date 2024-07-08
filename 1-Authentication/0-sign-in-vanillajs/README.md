@@ -36,7 +36,7 @@ extensions:
 
 ## Overview
 
-This sample demonstrates a vanilla JavaScript single-page application (SPA) that lets users authenticate to [Microsoft Entra External ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant) using the [Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) (MSAL.js). 
+This sample demonstrates a vanilla JavaScript single-page application (SPA) that lets users authenticate to [Microsoft Entra External ID](https://learn.microsoft.com/entra/external-id/customers/how-to-create-external-tenant-portal) using the [Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) (MSAL.js). 
 Here you'll learn about [ID Tokens](https://docs.microsoft.com/azure/active-directory/develop/id-tokens), [OIDC scopes](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes), [single-sign on](https://docs.microsoft.com/azure/active-directory/develop/msal-js-sso), **silent requests** and more.
 
 ## Scenario
