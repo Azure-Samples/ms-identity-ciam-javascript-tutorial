@@ -2,6 +2,19 @@
 // configuration parameters are located at authConfig.js
 const myMSALObj = new msal.PublicClientApplication(msalConfig);
 
+myMSALObj.initialize().then(() => {
+    /**
+     * A promise handler needs to be registered for handling the
+     * response returned from redirect flow. For more information, visit:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#redirect-apis
+     */
+    myMSALObj.handleRedirectPromise()
+        .then(handleResponse)
+        .catch((error) => {
+            console.error(error);
+        });
+    });
+
 let username = '';
 
 /**
