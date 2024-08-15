@@ -13,6 +13,9 @@ app.use(morgan('dev'));
 // Setup app folders.
 app.use(express.static('public'));
 
+// serve msal-browser module
+app.use(express.static(path.join(__dirname, "node_modules/@azure/msal-browser/lib")));
+
 // set up a route for redirect.html
 app.get('/redirect', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/redirect.html'));
