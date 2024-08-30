@@ -28,3 +28,5 @@ jobs:
           milliseconds: 1
           teams-webhook-url: ${{ secrets.TEAMS_WEBHOOK_URL }}
           token: ${{ secrets.LIST_ALERTS_PAT }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
