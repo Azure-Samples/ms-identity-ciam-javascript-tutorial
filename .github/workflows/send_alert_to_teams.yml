@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: Fetch alerts & send to teams
         id: send-alerts
-        uses: Azure-Samples/send-dependabot-alerts-to-teams@main
+        uses: "Azure-Samples/send-dependabot-alerts-to-teams@main"
         with:
           milliseconds: 1
           teams-webhook-url: ${{ secrets.TEAMS_WEBHOOK_URL }}
