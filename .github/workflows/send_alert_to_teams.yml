@@ -2,6 +2,8 @@ name: Send Dependabot Alerts to Teams
 
 on:
   pull_request: # tempoary to test the workflow
+    branches:
+      - main
   workflow_dispatch:
   push:
     branches:
