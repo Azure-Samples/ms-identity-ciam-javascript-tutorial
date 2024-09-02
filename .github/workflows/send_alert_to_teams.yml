@@ -25,6 +25,5 @@ jobs:
         id: send-alerts
         uses: Azure-Samples/send-dependabot-alerts-to-teams@main
         with:
-          milliseconds: 1
           teams-webhook-url: ${{ secrets.TEAMS_WEBHOOK_URL }}
           token: ${{ secrets.LIST_ALERTS_PAT }}
