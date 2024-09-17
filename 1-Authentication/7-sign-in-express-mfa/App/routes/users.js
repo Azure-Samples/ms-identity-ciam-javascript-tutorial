@@ -8,10 +8,7 @@ const router = express.Router();
 const authProvider = require("../auth/AuthProvider");
 
 var { fetch } = require("../fetch");
-const {
-  GRAPH_ME_ENDPOINT,
-  mfaProtectedResourceScope,
-} = require("../authConfig");
+const { GRAPH_ME_ENDPOINT, editProfileScope } = require("../authConfig");
 
 // custom middleware to check auth state
 function isAuthenticated(req, res, next) {
@@ -39,6 +36,11 @@ router.get(
       GRAPH_ME_ENDPOINT,
       req.session.accessToken,
     );
+    if (!graphResponse.ok) {
+      return res
+        .status(graphResponse.status)
+        .send("Failed to fetch profile data");
+    }
     res.render("gatedUpdateProfile", {
       profile: graphResponse,
     });
@@ -49,7 +51,7 @@ router.get(
   "/updateProfile",
   isAuthenticated, // check if user is authenticated
   authProvider.getToken(
-    ["User.Read", mfaProtectedResourceScope],
+    ["User.Read", editProfileScope],
     "http://localhost:3000/users/updateProfile",
   ),
   async function (req, res, next) {
@@ -57,6 +59,11 @@ router.get(
       GRAPH_ME_ENDPOINT,
       req.session.accessToken,
     );
+    if (!graphResponse.ok) {
+      return res
+        .status(graphResponse.status)
+        .send("Failed to fetch profile data");
+    }
     res.render("updateProfile", {
       profile: graphResponse,
     });
@@ -66,7 +73,7 @@ router.get(
 router.post(
   "/update",
   isAuthenticated,
-  authProvider.getToken([mfaProtectedResourceScope]),
+  authProvider.getToken([editProfileScope]),
   async function (req, res, next) {
     try {
       if (!!req.body) {

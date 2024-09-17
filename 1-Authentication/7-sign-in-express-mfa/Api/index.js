@@ -43,19 +43,19 @@ app.post("/updateUserInfo", async (req, res) => {
     fetch(GRAPH_ME_ENDPOINT, accessToken, "PATCH", req.body)
       .then((response) => {
         if (response.status === 204) {
-          res.status(204);
+          res.status(response.status);
           res.json({ message: "Success" });
         } else {
-          res.status(500);
-          res.json({ message: "Failed" });
+          res.status(502);
+          res.json({ message: "Failed, " + response.body });
         }
       })
       .catch((error) => {
-        res.status(400);
-        res.json({ message: "Failed" });
+        res.status(502);
+        res.json({ message: "Failed, " + error });
       });
   } catch (err) {
-    res.json({ message: "Failed" });
+    res.json({ message: "Failed, " + err });
   }
 });
 

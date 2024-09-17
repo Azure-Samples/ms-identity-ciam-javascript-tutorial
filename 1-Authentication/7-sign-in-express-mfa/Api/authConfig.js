@@ -7,7 +7,7 @@ require("dotenv").config({ path: ".env.dev" });
 
 const TENANT_SUBDOMAIN =
   process.env.TENANT_SUBDOMAIN || "Enter_the_Tenant_Subdomain_Here";
-const TENANT_ID = process.env.TENANT_ID || "Enter_the_Tenant_Subdomain_Here";
+const TENANT_ID = process.env.TENANT_ID || "Enter_the_Tenant_ID_Here";
 const REDIRECT_URI =
   process.env.REDIRECT_URI || "http://localhost:3000/auth/redirect";
 const POST_LOGOUT_REDIRECT_URI =
@@ -20,10 +20,12 @@ const POST_LOGOUT_REDIRECT_URI =
  */
 const msalConfig = {
   auth: {
-    clientId: process.env.CLIENT_ID || "Enter_the_Application_Id_Here", // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+    clientId:
+      process.env.CLIENT_ID ||
+      "Enter_the_Edit_Profile_Service_Application_Id_Here", // 'Application (client) ID' of the Edit_Profile Service App registration in Microsoft Entra admin center - this value is a GUID
     authority:
-      process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, // Replace the placeholder with your tenant name
-    clientSecret: process.env.CLIENT_SECRET || "Enter_the_Client_Secret_Here", // Client secret generated from the app registration in Azure portal
+      process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, // Replace the placeholder with your external tenant name
+    clientSecret: process.env.CLIENT_SECRET || "Enter_the_Client_Secret_Here", // Client secret generated from the app registration in Microsoft Entra admin center
   },
   system: {
     loggerOptions: {
@@ -41,12 +43,8 @@ const GRAPH_API_ENDPOINT = process.env.GRAPH_API_ENDPOINT || "graph_end_point";
 // https://learn.microsoft.com/en-us/graph/api/user-update?view=graph-rest-1.0&tabs=http
 const GRAPH_ME_ENDPOINT = GRAPH_API_ENDPOINT + "v1.0/me";
 
-const mfaProtectedResourceScope =
-  process.env.MFA_PROTECTED_SCOPE || "Add_your_protected_scope_here";
-
 module.exports = {
   msalConfig,
-  mfaProtectedResourceScope,
   REDIRECT_URI,
   POST_LOGOUT_REDIRECT_URI,
   TENANT_SUBDOMAIN,
