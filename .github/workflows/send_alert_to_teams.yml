@@ -1,7 +1,7 @@
 name: Send Dependabot Alerts to Teams
 
 on:
-  pull_request: # tempoary to test the workflow
+  pull_request:
     branches:
       - main
   workflow_dispatch:
@@ -14,16 +14,5 @@ on:
 jobs:
   send-alerts-to-teams:
     name: Send Dependabot Alerts to Teams
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      security-events: read
-
-    steps:
-      - name: Fetch alerts & send to teams
-        id: send-alerts
-        uses: Azure-Samples/send-dependabot-alerts-to-teams@main
-        with:
-          teams-webhook-url: ${{ secrets.TEAMS_WEBHOOK_URL }}
-          token: ${{ secrets.LIST_ALERTS_PAT }}
+    uses: Azure-Samples/send-dependabot-alerts-to-teams/.github/workflows/reusable-workflow.yml@main
+    secrets: inherit
