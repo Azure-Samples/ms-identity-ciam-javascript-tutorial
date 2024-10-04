@@ -33,18 +33,14 @@ module.exports = function (config) {
       ]
     },
     reporters: ['progress', 'kjhtml'],
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome', 'ChromeHeadless', 'ChromeHeadlessCI'],
+    browsers: ['Chrome'],
     customLaunchers: {
       ChromeHeadlessCI: {
         base: 'ChromeHeadless',
         flags: ['--no-sandbox']
       }
     },
-    singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    singleRun: true
   });
 };

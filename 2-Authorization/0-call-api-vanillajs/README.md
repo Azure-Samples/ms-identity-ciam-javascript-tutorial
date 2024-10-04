@@ -1,7 +1,7 @@
 ---
 page_type: sample
-name: Vanilla JavaScript single-page application using MSAL.js to authentication users against Customer Identity Access Management (CIAM) and call a protected ASP.NET Core web API
-description: This sample demonstrates a Vanilla JavaScript using MSAL.js to authenticate users with Azure AD for Customers and call a protected ASP.NET Core web API
+name: Vanilla JavaScript single-page application using MSAL.js to authentication users against Microsoft Entra External ID and call a protected ASP.NET Core web API
+description: This sample demonstrates a Vanilla JavaScript using MSAL.js to authenticate users with Microsoft Entra External ID and call a protected ASP.NET Core web API
 languages:
  - javascript
  - csharp
@@ -26,7 +26,7 @@ extensions:
     - ASP.NET Core web API
 ---
 
-# Vanilla JavaScript single-page application using MSAL.js to authentication users against Customer Identity Access Management (CIAM) and call a protected ASP.NET Core web API
+# Vanilla JavaScript single-page application using MSAL.js to authentication users against Microsoft Entra External ID and call a protected ASP.NET Core web API
 
 * [Overview](#overview)
 * [Scenario](#scenario)
@@ -42,14 +42,14 @@ extensions:
 
 ## Overview
 
-This sample demonstrates a vanilla JavaScript single-page application (SPA) that lets users sign-in with Azure Active Directory (Azure AD) Consumers Identity and Access Management (CIAM) using the [Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) (MSAL Browser).
+This sample demonstrates a vanilla JavaScript single-page application (SPA) that lets users sign-in with Microsoft Entra External ID using the [Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) (MSAL Browser).
 
 Here you'll learn about [access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens), [token validation](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens), [CORS configuration](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services#understanding-cors-requests), **silent requests** and more.
 
 ## Scenario
 
-1. The client Vanilla JavaScript SPA uses the  to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) and an [Access Token](https://aka.ms/access-tokens) from **Azure AD for Customers**..
-1. The **access token** is used as a *bearer* token to authorize the user to call the ASP.NET Core web API protected by **Azure AD for Customers**.
+1. The client Vanilla JavaScript SPA uses the  to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) and an [Access Token](https://aka.ms/access-tokens) from **Microsoft Entra External ID**..
+1. The **access token** is used as a *bearer* token to authorize the user to call the ASP.NET Core web API protected by **Microsoft Entra External ID**.
 1. ASP.NET Core web API uses the [Microsoft.Identity.Web](https://aka.ms/microsoft-identity-web) to protect the Web api, check permissions and validate tokens.
 
 ![Scenario Image](./ReadmeFiles/topology.png)
@@ -70,8 +70,8 @@ Here you'll learn about [access tokens](https://docs.microsoft.com/azure/active-
 * [Visual Studio Code](https://code.visualstudio.com/download) is recommended for running and editing this sample.
 * [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
 * A modern web browser.
-* An **Azure AD for Customers** tenant. For more information, see: [How to get an Azure AD for Customers tenant](https://github.com/microsoft/entra-previews/blob/PP2/docs/1-Create-a-CIAM-tenant.md)
-* A user account in your **Azure AD for Customers** tenant.
+ * An external tenant. For more information, see: [Create a new external tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/external-id/customers/how-to-create-external-tenant-portal)
+* A user an external tenant.
 
 ## Setup the sample
 
@@ -94,13 +94,13 @@ or download and extract the repository *.zip* file.
     npm install
 ```
 
-### Step 3: Register the sample application(s) in your tenant
+### Step 3: Register the sample applications in your tenant
 
-There are two projects in this sample. Each needs to be separately registered in your Azure AD tenant. To register these projects, you can:
+There are two projects in this sample. Each needs to be separately registered in your external tenant. To register these projects, you can:
 
 - follow the steps below for manually register your apps
 - or use PowerShell scripts that:
-  - **automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
+  - **automatically** creates the Microsoft Entra applications and related objects (passwords, permissions, dependencies) for you.
   - modify the projects' configuration files.
 
 <details>
@@ -121,29 +121,29 @@ There are two projects in this sample. Each needs to be separately registered in
 
 </details>
 
-#### Choose the Azure AD for Customers tenant where you want to create your applications
+#### Choose the Microsoft Entra External ID tenant where you want to create your applications
 
 To manually register the apps, as a first step you'll need to:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If your account is present in more than one Azure AD for Customers tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD for Customers tenant.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. If your account is present in more than one Microsoft Entra External ID tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra External ID tenant.
 
 #### Create User Flows
 
-Please refer to: [Tutorial: Create user flow in Azure Active Directory CIAM](https://github.com/microsoft/entra-previews/blob/PP2/docs/3-Create-sign-up-and-sign-in-user-flow.md)
+Please refer to: [Tutorial: Create a sign-up and sign-in user flow](https://learn.microsoft.com/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers)
 
-> :information_source: To enable password reset in Customer Identity Access Management (CIAM) in Azure Active Directory (Azure AD), please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
+> :information_source: To enable password reset in an external tenant, please refer to: [Tutorial: Enable users to unlock their account or reset passwords using Microsoft Entra self-service password reset](https://learn.microsoft.com/entra/identity/authentication/tutorial-enable-sspr)
 
 #### Add External Identity Providers
 
 Please refer to:
 
-* [Tutorial: Add Google as an identity provider](https://github.com/microsoft/entra-previews/blob/PP2/docs/6-Add-Google-identity-provider.md)
-* [Tutorial: Add Facebook as an identity provider](https://github.com/microsoft/entra-previews/blob/PP2/docs/7-Add-Facebook-identity-provider.md)
+* [Tutorial: Add Google as an identity provider](https://learn.microsoft.com/entra/external-id/customers/how-to-google-federation-customers)
+* [Tutorial: Add Facebook as an identity provider](https://learn.microsoft.com/entra/external-id/customers/how-to-facebook-federation-customers)
 
 #### Register the service app (ciam-msal-dotnet-api)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure AD for Customers** service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/) and select the **Microsoft Entra External ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ciam-msal-dotnet-api`.
@@ -157,7 +157,7 @@ Please refer to:
 ##### Publish Delegated Permissions
 
 1. All APIs must publish a minimum of one [scope](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code), also called [Delegated Permission](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#permission-types), for the client apps to obtain an access token for a *user* successfully. To publish a scope, follow these steps:
-1. Select **Add a scope** button open the **Add a scope** screen and Enter the values as indicated below:
+1. Select **Add a scope** button open the **Add a scope** screen and enter the values as indicated below:
     1. For **Scope name**, use `ToDoList.Read`.
     1. For **Admin consent display name** type in *ToDoList.Read*.
     1. For **Admin consent description** type in *e.g. Allows the app to read the signed-in user's files.*.
@@ -179,6 +179,7 @@ Please refer to:
     1. For **Allowed member types**, choose **Application** to ensure other applications can be granted this permission.
     1. For **Value**, enter **ToDoList.Read.All**.
     1. For **Description**, enter *e.g. Allows the app to read the signed-in user's files.*.
+    1. Check the box for **Do you want to enable this app role?**
     1. Select **Apply** to save your changes.
     1. Repeat the steps above for another app permission named **ToDoList.ReadWrite.All**
 
@@ -198,13 +199,13 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `API\ToDoListAPI\appsettings.json` file.
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Azure portal.
-1. Find the key `Enter_the_Tenant_Id_Here` and replace the existing value with your Azure AD tenant/directory ID.
 1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).
+1. Find the key `Enter_the_Tenant_Id_Here` and replace the existing value with your external tenant/directory ID.
+1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Microsoft Entra admin center.
 
 #### Register the client app (ciam-msal-javascript-spa)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure AD for Customers** service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/) and select the **Microsoft Entra External ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ciam-msal-javascript-spa`.
@@ -212,11 +213,10 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
     1. Select **Register** to create the application.
 1. In the **Overview** blade, find and note the **Application (client) ID**. You use this value in your app's configuration file(s) later in your code.
 1. In the app's registration screen, select the **Authentication** blade to the left.
-1. If you don't have a platform added, select **Add a platform** and select the **Single-page application** option.
-    1. In the **Redirect URI** section enter the following redirect URIs:
+1. Select **Authentication** and then **Add a URI**. Select the **Single-page application** option.
+    1. In the **Redirect URI** section enter the following redirect URI:
         1. `http://localhost:3000`
-        1. `http://localhost:3000/redirect`
-    1. Select **Configure**
+    1. Repeat for `http://localhost:3000/redirect`
     1. Select **Save** to save your changes.
 1. Since this app signs-in users, we will now proceed to select **delegated permissions**, which is is required by apps signing-in users.
     1. In the app's registration screen, select the **API permissions** blade in the left to open the page where we add access to the APIs that your application needs:
@@ -224,13 +224,12 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
     1. Ensure that the **Microsoft APIs** tab is selected.
     1. In the *Commonly used Microsoft APIs* section, select **Microsoft Graph**
     1. In the **Delegated permissions** section, select **openid**, **offline_access** in the list. Use the search box if necessary.
-    1. Select the **Add permissions** button at the bottom.
     1. Select the **Add a permission** button and then:
-    1. Ensure that the **My APIs** tab is selected.
+    1. Ensure that the **APIs my organization uses** tab is selected.
     1. In the list of APIs, select the API `ciam-msal-dotnet-api`.
     1. In the **Delegated permissions** section, select **ToDoList.Read**, **ToDoList.ReadWrite** in the list. Use the search box if necessary.
     1. Select the **Add permissions** button at the bottom.
-1. At this stage, the permissions are assigned correctly, but since it's a CIAM tenant, the users themselves cannot consent to these permissions. To get around this problem, we'd let the [tenant administrator consent on behalf of all users in the tenant](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent). Select the **Grant admin consent for {tenant}** button, and then select **Yes** when you are asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a tenant admin to be able to carry out this operation.
+1. At this stage, the permissions are assigned correctly, but since it's an external tenant, the users themselves cannot consent to these permissions. To get around this problem, we'd let the [tenant administrator consent on behalf of all users in the tenant](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent). Select the **Grant admin consent for {tenant}** button, and then select **Yes** when you are asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a tenant admin to be able to carry out this operation.
 
 ##### Configure the client app (ciam-msal-javascript-spa) to use your app registration
 
@@ -239,8 +238,10 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `SPA\public\authConfig.js` file.
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-javascript-spa` app copied from the Azure portal.
-1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).`Enter_the_Web_Api_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Azure portal.
+1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-javascript-spa` app copied from the Microsoft Entra admin center.
+1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).
+1. Find the placeholder `Enter_The_Tenant_Id_Here` and replace the existing value with your external tenant/directory ID.
+1. `Enter_the_Web_Api_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Microsoft Entra admin center.
 
 ### Step 4: Running the sample
 
@@ -455,13 +456,13 @@ Build your project to get a distributable files folder, where your built `html`,
 
 > :information_source: If you don't have an account already, see: [How to create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create).
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. Locate your storage account and display the account overview.
 1. Select **Static website** to display the configuration page for static websites.
 1. Select **Enabled** to enable static website hosting for the storage account.
 1. In the **Index document name** field, specify a default index page (For example: `index.html`).
 1. The default **index page** is displayed when a user navigates to the root of your static website.
-1. Select **Save**. The Azure portal now displays your static website endpoint. Make a note of the **Primary endpoint field**.
+1. Select **Save**. The Microsoft Entra admin center now displays your static website endpoint. Make a note of the **Primary endpoint field**.
 1. In the `ciam-msal-javascript-spa` project source code, update your configuration file with the **Primary endpoint field** as your new **Redirect URI** (you will register this URI later).
 1. Next, select **Storage Explorer**.
 1. Expand the **BLOB CONTAINERS** node, and then select the `$web` container.
@@ -471,8 +472,8 @@ Build your project to get a distributable files folder, where your built `html`,
 
 #### Update the CIAM app registration for ciam-msal-javascript-spa
 
-1. Navigate back to to the [Azure portal](https://portal.azure.com).
-1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations**.
+1. Navigate back to to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. In the left-hand navigation pane, select the **Microsoft Entra** service, and then select **App registrations**.
 1. In the resulting screen, select `ciam-msal-javascript-spa`.
 1. In the app's registration screen, select **Authentication** in the menu.
    1. In the **Redirect URIs** section, update the reply URLs to match the site URL of your Azure deployment. For example:
@@ -495,17 +496,17 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## Learn More
 
-* [Customize the default branding](https://github.com/microsoft/entra-previews/blob/PP2/docs/5-Customize-default-branding.md)
-* [OAuth 2.0 device authorization grant flow](https://github.com/microsoft/entra-previews/blob/PP2/docs/9-OAuth2-device-code.md)
-* [Customize sign-in strings](https://github.com/microsoft/entra-previews/blob/PP2/docs/8-Customize-sign-in-strings.md)
+* [Configure your company branding](https://learn.microsoft.com/entra/fundamentals/how-to-customize-branding)
+* [OAuth 2.0 authorization with Microsoft Entra ID](https://learn.microsoft.com/entra/architecture/auth-oauth2)
+* [Language customization in Microsoft Entra External ID](https://learn.microsoft.com/entra/external-id/user-flow-customize-language)
 * [Building Zero Trust ready apps](https://aka.ms/ztdevsession)
-* [Initialize client applications using MSAL.js](https://docs.microsoft.com/azure/active-directory/develop/msal-js-initializing-client-applications)
-* [Single sign-on with MSAL.js](https://docs.microsoft.com/azure/active-directory/develop/msal-js-sso)
+* [Initialize client applications using MSAL.js](https://learn.microsoft.com/entra/identity-platform/msal-js-initializing-client-applications)
+* [Single sign-on with MSAL.js](https://learn.microsoft.com/entra/identity-platform/msal-js-sso)
 * [Handle MSAL.js exceptions and errors](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=javascript)
-* [Logging in MSAL.js applications](https://docs.microsoft.com/azure/active-directory/develop/msal-logging?tabs=javascript)
-* [Pass custom state in authentication requests using MSAL.js](https://docs.microsoft.com/azure/active-directory/develop/msal-js-pass-custom-state-authentication-request)
-* [Prompt behavior in MSAL.js interactive requests](https://docs.microsoft.com/azure/active-directory/develop/msal-js-prompt-behavior)
-* [Use MSAL.js to work with Azure AD B2C](https://docs.microsoft.com/azure/active-directory/develop/msal-b2c-overview)
+* [Logging in MSAL.js applications](https://learn.microsoft.com/entra/identity-platform/msal-logging-js)
+* [Pass custom state in authentication requests using MSAL.js](https://learn.microsoft.com/entra/identity-platform/msal-js-pass-custom-state-authentication-request)
+* [Prompt behavior in MSAL.js interactive requests](https://learn.microsoft.com/entra/identity-platform/msal-js-prompt-behavior)
+* [Use the Microsoft Authentication Library for JavaScript to work with Azure AD B2C](https://learn.microsoft.com/entra/identity-platform/msal-b2c-overview)
 * [Validating Access Tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens)
 * [User and application tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#user-and-application-tokens)
 * [Validation differences by supported account types](https://docs.microsoft.com/azure/active-directory/develop/supported-accounts-validation)

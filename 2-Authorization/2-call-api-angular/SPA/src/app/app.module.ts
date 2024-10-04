@@ -20,7 +20,7 @@ import { TodoEditComponent } from './todo-edit/todo-edit.component';
 import { TodoViewComponent } from './todo-view/todo-view.component';
 import { TodoService } from './todo.service';
 
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { IPublicClientApplication, PublicClientApplication, InteractionType } from '@azure/msal-browser';
 import {
     MsalGuard, MsalInterceptor, MsalBroadcastService, MsalInterceptorConfiguration, MsalModule, MsalService,
@@ -81,15 +81,13 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     };
 }
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
         HomeComponent,
         TodoViewComponent,
         TodoEditComponent
     ],
-    imports: [
-        BrowserModule,
+    bootstrap: [AppComponent, MsalRedirectComponent], imports: [BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,
         MatButtonModule,
@@ -101,11 +99,8 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
         MatFormFieldModule,
         MatCheckboxModule,
         MatIconModule,
-        HttpClientModule,
         FormsModule,
-        MsalModule
-    ],
-    providers: [
+        MsalModule], providers: [
         {
             provide: HTTP_INTERCEPTORS,
             useClass: MsalInterceptor,
@@ -126,8 +121,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
         MsalService,
         MsalGuard,
         MsalBroadcastService,
-        TodoService
-    ],
-    bootstrap: [AppComponent, MsalRedirectComponent]
-})
+        TodoService,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }

@@ -1,7 +1,7 @@
 ---
 page_type: sample
-name: React single-page application using MSAL React to authenticate users against Azure AD for Customers
-description: React single-page application using MSAL React to authenticate users against Azure Active Directory Customer Identity Access Management (Azure AD for Customers)
+name: React single-page application using MSAL React to authenticate users against Microsoft Entra External ID
+description: React single-page application using MSAL React to authenticate users against Microsoft Entra External ID
 languages:
  - javascript
 products:
@@ -21,7 +21,7 @@ extensions:
     - React SPA 
 ---
 
-# React single-page application using MSAL React to authenticate users against Azure AD for Customers
+# React single-page application using MSAL React to authenticate users against Microsoft Entra External ID
 
 * [Overview](#overview)
 * [Scenario](#scenario)
@@ -36,7 +36,7 @@ extensions:
 
 ## Overview
 
-This sample demonstrates a React SPA that authenticates users against [Customer Identity Access Management](https://github.com/microsoft/entra-previews/tree/PP2/docs) (CIAM), using the [Microsoft Authentication Library for React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react) (MSAL React).
+This sample demonstrates a React SPA that authenticates users against [Microsoft Entra External ID](https://learn.microsoft.com/entra/identity-platform/v2-overview), using the [Microsoft Authentication Library for React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react) (MSAL React).
 
 MSAL React is a wrapper around the [Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) (MSAL.js). As such, it exposes the same public APIs that MSAL.js offers, while adding many new features customized for modern React applications.
 
@@ -44,8 +44,8 @@ Here you'll learn how to [sign-in](https://docs.microsoft.com/azure/active-direc
 
 ## Scenario
 
-1. The client React SPA uses the  to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) from **Azure AD for Customers**.
-1. The **ID Token** proves that the user has successfully authenticated against **Azure AD for Customers**.
+1. The client React SPA uses the  to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) from **Microsoft Entra External ID**.
+1. The **ID Token** proves that the user has successfully authenticated against **Microsoft Entra External ID**.
 
 ![Scenario Image](./ReadmeFiles/topology.png)
 
@@ -62,10 +62,10 @@ Here you'll learn how to [sign-in](https://docs.microsoft.com/azure/active-direc
 * [Node.js](https://nodejs.org/en/download/) must be installed to run this sample.
 * [Visual Studio Code](https://code.visualstudio.com/download) is recommended for running and editing this sample.
 * [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
-* An **Azure AD for Customers** tenant. For more information, see: [How to get an Azure AD for Customers tenant](https://github.com/microsoft/entra-previews/blob/PP2/docs/1-Create-a-CIAM-tenant.md)
-* A user account in your **Azure AD for Customers** tenant.
+ * An external tenant. For more information, see: [Create a new external tenant in Microsoft Entra ID]https://learn.microsoft.com/entra/external-id/customers/how-to-create-external-tenant-portal)
+* A user an external tenant.
 
->This sample will not work with a **personal Microsoft account**. If you're signed in to the [Azure portal](https://portal.azure.com) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
+>This sample will not work with a **personal Microsoft account**. If you're signed in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
 
 ## Setup the sample
 
@@ -94,7 +94,7 @@ There is one project in this sample. To register it, you can:
 
 * follow the steps below for manually register your apps
 * or use PowerShell scripts that:
-  * **automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
+  * **automatically** creates the Microsoft Entra applications and related objects (passwords, permissions, dependencies) for you.
   * modify the projects' configuration files.
 
 <details>
@@ -120,29 +120,29 @@ There is one project in this sample. To register it, you can:
 > Other ways of running the scripts are described in [App Creation Scripts guide](./AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
 </details>
 
-#### Choose the CIAM tenant where you want to create your applications
+#### Choose the external tenant where you want to create your applications
 
 To manually register the apps, as a first step you'll need to:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If your account is present in more than one CIAM tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired CIAM tenant.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. If your account is present in more than one external tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired external tenant.
 
 #### Create User Flows
 
-Please refer to: [Tutorial: Create user flow in Azure Active Directory CIAM](https://github.com/microsoft/entra-previews/blob/PP2/docs/3-Create-sign-up-and-sign-in-user-flow.md)
+Please refer to: [Tutorial: Create a sign-up and sign-in user flow](https://learn.microsoft.com/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers)
 
-> :information_source: To enable password reset in Customer Identity Access Management (CIAM) in Azure Active Directory (Azure AD), please refer to: [Tutorial: Enable self-service password reset](https://github.com/microsoft/entra-previews/blob/PP2/docs/4-Enable-password-reset.md)
+> :information_source: To enable password reset in an external tenant, please refer to: [Tutorial: Enable users to unlock their account or reset passwords using Microsoft Entra self-service password reset](https://learn.microsoft.com/entra/identity/authentication/tutorial-enable-sspr)
 
 #### Add External Identity Providers
 
 Please refer to:
 
-* [Tutorial: Add Google as an identity provider](https://github.com/microsoft/entra-previews/blob/PP2/docs/6-Add-Google-identity-provider.md)
-* [Tutorial: Add Facebook as an identity provider](https://github.com/microsoft/entra-previews/blob/PP2/docs/7-Add-Facebook-identity-provider.md)
+* [Tutorial: Add Google as an identity provider](https://learn.microsoft.com/entra/external-id/customers/how-to-google-federation-customers)
+* [Tutorial: Add Facebook as an identity provider](https://learn.microsoft.com/entra/external-id/customers/how-to-facebook-federation-customers)
 
 #### Register the client app (msal-react-spa)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure AD for Customers** service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/) and select the **Microsoft Entra External ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `msal-react-spa`.
@@ -162,7 +162,7 @@ Please refer to:
     1. In the *Commonly used Microsoft APIs* section, select **Microsoft Graph**
     1. In the **Delegated permissions** section, select **openid**, **offline_access** in the list. Use the search box if necessary.
     1. Select the **Add permissions** button at the bottom.
-1. At this stage, the permissions are assigned correctly, but since it's a CIAM tenant, the users themselves cannot consent to these permissions. To get around this problem, we'd let the [tenant administrator consent on behalf of all users in the tenant](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent). Select the **Grant admin consent for {tenant}** button, and then select **Yes** when you are asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a tenant admin to be able to carry out this operation.
+1. At this stage, the permissions are assigned correctly, but since it's an external tenant, the users themselves cannot consent to these permissions. To get around this problem, we'd let the [tenant administrator consent on behalf of all users in the tenant](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent). Select the **Grant admin consent for {tenant}** button, and then select **Yes** when you are asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a tenant admin to be able to carry out this operation.
 
 ##### Configure the client app (msal-react-spa) to use your app registration
 
@@ -171,7 +171,7 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `SPA\src\authConfig.js` file.
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `msal-react-spa` app copied from the Azure portal.
+1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `msal-react-spa` app copied from the Microsoft Entra admin center.
 1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).
 
 ### Step 4: Running the sample
@@ -203,7 +203,7 @@ Were we successful in addressing your learning objective? Consider taking a mome
 Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before.
 Make sure that your questions or comments are tagged with [`azure-active-directory` `node` `ms-identity` `adal` `msal-js` `msal`].
 
-To provide feedback on or suggest features for Azure Active Directory, visit [User Voice page](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
+To provide feedback on or suggest features for Microsoft Entra, visit [User Voice page](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 </details>
 
 ## About the code
@@ -211,13 +211,13 @@ To provide feedback on or suggest features for Azure Active Directory, visit [Us
 MSAL React should be instantiated outside of the component tree to prevent it from being re-instantiated on re-renders. After instantiation, pass it as props to your application.
 
 ```javascript
+import { createRoot } from 'react-dom/client';
+
 const msalInstance = new PublicClientApplication(msalConfig);
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App msalInstance={msalInstance}/>
-    </React.StrictMode>,
-    document.getElementById("root")
+const root = createRoot(document.getElementById('root'));
+root.render(
+    <App instance={msalInstance}/>
 );
 
 export default function App({msalInstance}) {
@@ -317,13 +317,13 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## Learn More
 
-* [Customize the default branding](https://github.com/microsoft/entra-previews/blob/PP2/docs/5-Customize-default-branding.md)
-* [OAuth 2.0 device authorization grant flow](https://github.com/microsoft/entra-previews/blob/PP2/docs/9-OAuth2-device-code.md)
-* [Customize sign-in strings](https://github.com/microsoft/entra-previews/blob/PP2/docs/8-Customize-sign-in-strings.md)
+* [Configure your company branding](https://learn.microsoft.com/entra/fundamentals/how-to-customize-branding)
+* [OAuth 2.0 authorization with Microsoft Entra ID](https://learn.microsoft.com/entra/architecture/auth-oauth2)
+* [Language customization in Microsoft Entra External ID](https://learn.microsoft.com/entra/external-id/user-flow-customize-language)
 * [Building Zero Trust ready apps](https://aka.ms/ztdevsession)
-* [Initialize client applications using MSAL.js](https://docs.microsoft.com/azure/active-directory/develop/msal-js-initializing-client-applications)
-* [Single sign-on with MSAL.js](https://docs.microsoft.com/azure/active-directory/develop/msal-js-sso)
+* [Initialize client applications using MSAL.js](https://learn.microsoft.com/entra/identity-platform/msal-js-initializing-client-applications)
+* [Single sign-on with MSAL.js](https://learn.microsoft.com/entra/identity-platform/msal-js-sso)
 * [Handle MSAL.js exceptions and errors](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=javascript)
-* [Logging in MSAL.js applications](https://docs.microsoft.com/azure/active-directory/develop/msal-logging?tabs=javascript)
-* [Pass custom state in authentication requests using MSAL.js](https://docs.microsoft.com/azure/active-directory/develop/msal-js-pass-custom-state-authentication-request)
-* [Prompt behavior in MSAL.js interactive requests](https://docs.microsoft.com/azure/active-directory/develop/msal-js-prompt-behavior)
+* [Logging in MSAL.js applications](https://learn.microsoft.com/entra/identity-platform/msal-logging-js)
+* [Pass custom state in authentication requests using MSAL.js](https://learn.microsoft.com/entra/identity-platform/msal-js-pass-custom-state-authentication-request)
+* [Prompt behavior in MSAL.js interactive requests](https://learn.microsoft.com/entra/identity-platform/msal-js-prompt-behavior)

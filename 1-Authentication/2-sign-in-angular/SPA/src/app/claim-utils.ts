@@ -12,7 +12,7 @@ export const createClaimsTable = (claims: Record<string, string>): any[] => {
         populateClaim(
           key,
           claims[key],
-          "Identifies the intended recipient of the token. In ID tokens, the audience is your app's Application ID, assigned to your app in the Azure portal.",
+          "Identifies the intended recipient of the token. In ID tokens, the audience is your app's Application ID, assigned to your app in the Microsoft Entra admin center.",
           claimsTable
         );
         break;
@@ -20,7 +20,7 @@ export const createClaimsTable = (claims: Record<string, string>): any[] => {
         populateClaim(
           key,
           claims[key],
-          'Identifies the issuer, or authorization server that constructs and returns the token. It also identifies the Azure AD tenant for which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in /v2.0.',
+          'Identifies the issuer, or authorization server that constructs and returns the token. It also identifies the external tenant for which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in /v2.0.',
           claimsTable
         );
         break;
@@ -76,7 +76,7 @@ export const createClaimsTable = (claims: Record<string, string>): any[] => {
         populateClaim(
           key,
           claims[key],
-          'The oid (user object id) is the only claim that should be used to uniquely identify a user in an Azure AD tenant.',
+          'The oid (user object id) is the only claim that should be used to uniquely identify a user in an external tenant.',
           claimsTable
         );
         break;
@@ -84,7 +84,7 @@ export const createClaimsTable = (claims: Record<string, string>): any[] => {
         populateClaim(
           key,
           claims[key],
-          'The id of the tenant where this application resides. You can use this claim to ensure that only users from the current Azure AD tenant can access this app.',
+          'The id of the tenant where this application resides. You can use this claim to ensure that only users from the current external tenant can access this app.',
           claimsTable
         );
         break;

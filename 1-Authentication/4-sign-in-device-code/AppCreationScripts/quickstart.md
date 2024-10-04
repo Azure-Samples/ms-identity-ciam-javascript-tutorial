@@ -14,7 +14,7 @@ ms.date: 04/19/2023
 ---
 # Portal quickstart for Node.js browserless app
 
-> In this quickstart, you download and run a code sample that demonstrates how a Node.js browserless app can sign in users via the device code flow with Azure AD for Customers.
+> In this quickstart, you download and run a code sample that demonstrates how a Node.js browserless app can sign in users via the device code flow with Microsoft Entra External ID.
 >
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 >

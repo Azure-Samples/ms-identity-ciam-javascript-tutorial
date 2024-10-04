@@ -48,8 +48,8 @@ Here you'll learn about [access tokens](https://docs.microsoft.com/azure/active-
 
 ## Scenario
 
-1. The Node.js daemon app obtains a JWT [Access Token](https://aka.ms/access-tokens) from **Azure AD for Customers**.
-1. The **access token** is used as a *bearer* token to authorize the user to call the ASP.NET Core web API protected by **Azure AD for Customers**.
+1. The Node.js daemon app obtains a JWT [Access Token](https://aka.ms/access-tokens) from **Microsoft Entra External ID**.
+1. The **access token** is used as a *bearer* token to authorize the user to call the ASP.NET Core web API protected by **Microsoft Entra External ID**.
 1. The service uses the [Microsoft.Identity.Web](https://aka.ms/microsoft-identity-web) to protect the Web api, check permissions and validate tokens.
 
 ![Scenario Image](./ReadmeFiles/topology.png).
@@ -67,8 +67,8 @@ Here you'll learn about [access tokens](https://docs.microsoft.com/azure/active-
 ## Prerequisites
 
 * Either [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [Visual Studio Code](https://code.visualstudio.com/download) and [.NET Core SDK](https://www.microsoft.com/net/learn/get-started)
-* An **Azure AD for Customers** tenant. For more information, see: [How to get an Azure AD for Customers tenant](https://github.com/microsoft/entra-previews/blob/PP2/docs/1-Create-a-CIAM-tenant.md)
-* A user account in your **Azure AD for Customers** tenant.
+* An external tenant. For more information, see: [Create a new external tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/external-id/customers/how-to-create-external-tenant-portal)
+* A user an external tenant.
 
 ## Setup the sample
 
@@ -93,11 +93,11 @@ or download and extract the repository *.zip* file.
 
 ### Step 3: Register the sample application(s) in your tenant
 
-There are two projects in this sample. Each needs to be separately registered in your Azure AD tenant. To register these projects, you can:
+There are two projects in this sample. Each needs to be separately registered in your external tenant. To register these projects, you can:
 
 - follow the steps below for manually register your apps
 - or use PowerShell scripts that:
-  - **automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
+  - **automatically** creates the Microsoft Entra applications and related objects (passwords, permissions, dependencies) for you.
   - modify the projects' configuration files.
 
 <details>
@@ -120,16 +120,16 @@ There are two projects in this sample. Each needs to be separately registered in
 
 </details>
 
-#### Choose the Azure AD for Customers tenant where you want to create your applications
+#### Choose the Microsoft Entra External ID tenant where you want to create your applications
 
 To manually register the apps, as a first step you'll need to:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If your account is present in more than one Azure AD for Customers tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD for Customers tenant.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. If your account is present in more than one Microsoft Entra External ID tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra External ID tenant.
 
 #### Register the service app (ciam-msal-dotnet-api)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure AD for Customers** service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/) and select the **Microsoft Entra External ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ciam-msal-dotnet-api`.
@@ -185,13 +185,13 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `API\ToDoListAPI\appsettings.json` file.
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Azure portal.
-1. Find the key `Enter_the_Tenant_Id_Here` and replace the existing value with your Azure AD tenant/directory ID.
+1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Microsoft Entra admin center.
+1. Find the key `Enter_the_Tenant_Id_Here` and replace the existing value with your external tenant/directory ID.
 1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).
 
 #### Register the client app (ciam-msal-node-daemon)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure AD for Customers** service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/) and select the **Microsoft Entra External ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ciam-msal-node-daemon`.
@@ -203,7 +203,7 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
     1. Type a key description (for instance `app secret`).
     1. Select one of the available key durations (**6 months**, **12 months** or **Custom**) as per your security posture.
     1. The generated key value will be displayed when you select the **Add** button. Copy and save the generated value for use in later steps.
-    1. You'll need this key later in your code's configuration files. This key value will not be displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+    1. You'll need this key later in your code's configuration files. This key value will not be displayed again, and is not retrievable by any other means, so make sure to note it from the Microsoft Entra admin center before navigating to any other screen or blade.
     > :warning: For enhanced security, consider using **certificates** instead of client secrets. See: [How to use certificates instead of secrets](./README-use-certificate.md).
 1. Since this app signs-in as itself using the [OAuth 2\.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), we will now proceed to select **application permissions**, which is required by apps authenticating as themselves.
     1. In the app's registration screen, select the **API permissions** blade in the left to open the page where we add access to the APIs that your application needs:
@@ -222,10 +222,10 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `APP\.env` file.
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-node-daemon` app copied from the Azure portal.
+1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-node-daemon` app copied from the Microsoft Entra admin center.
 1. Find the placeholder `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant domain name, learn how to [read your tenant details](https://review.learn.microsoft.com/azure/active-directory/external-identities/customers/how-to-create-customer-tenant-portal#get-the-customer-tenant-details).
-1. Find the key `Enter_the_Client_Secret_Here` and replace the existing value with the generated secret that you saved during the creation of `ciam-msal-node-daemon` copied from the Azure portal.
-1. Find the key `Enter_the_Web_Api_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Azure portal.
+1. Find the key `Enter_the_Client_Secret_Here` and replace the existing value with the generated secret that you saved during the creation of `ciam-msal-node-daemon` copied from the Microsoft Entra admin center.
+1. Find the key `Enter_the_Web_Api_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-msal-dotnet-api` app copied from the Microsoft Entra admin center.
 
 ### Step 4: Running the sample
 
@@ -386,7 +386,7 @@ Follow the link to [Publish with Visual Studio](https://docs.microsoft.com/visua
 >
 > If that's the case, you'll need enable [cross-origin resource sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) for you web API. Follow the steps below to do this:
 >
-> * Go to [Azure portal](https://portal.azure.com), and locate the web API project that you've deployed to App Service.
+> * Go to [Microsoft Entra admin center](https://entra.microsoft.com/), and locate the web API project that you've deployed to App Service.
 > * On the API blade, select **CORS**. Check the box **Enable Access-Control-Allow-Credentials**.
 > * Under **Allowed origins**, add the URL of your published web app **that will call this web API**.
 
@@ -400,9 +400,9 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## Learn More
 
-* [Customize the default branding](https://github.com/microsoft/entra-previews/blob/PP2/docs/5-Customize-default-branding.md)
-* [OAuth 2.0 device authorization grant flow](https://github.com/microsoft/entra-previews/blob/PP2/docs/9-OAuth2-device-code.md)
-* [Customize sign-in strings](https://github.com/microsoft/entra-previews/blob/PP2/docs/8-Customize-sign-in-strings.md)
+* [Configure your company branding](https://learn.microsoft.com/entra/fundamentals/how-to-customize-branding)
+* [OAuth 2.0 authorization with Microsoft Entra ID](https://learn.microsoft.com/entra/architecture/auth-oauth2)
+* [Language customization in Microsoft Entra External ID](https://learn.microsoft.com/entra/external-id/user-flow-customize-language)
 * [Building Zero Trust ready apps](https://aka.ms/ztdevsession)
 * [Microsoft.Identity.Web](https://aka.ms/microsoft-identity-web)
 * [Validating Access Tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens)

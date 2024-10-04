@@ -18,11 +18,11 @@ Function Cleanup
 
     <#
     .Description
-    This function removes the Azure AD applications for the sample. These applications were created by the Configure.ps1 script
+    This function removes the Microsoft Entra applications for the sample. These applications were created by the Configure.ps1 script
     #>
 
-    # $tenantId is the Active Directory Tenant. This is a GUID which represents the "Directory ID" of the AzureAD tenant 
-    # into which you want to create the apps. Look it up in the Azure portal in the "Properties" of the Azure AD. 
+    # $tenantId is the Microsoft Entra Tenant. This is a GUID which represents the "Directory ID" of the AzureAD tenant 
+    # into which you want to create the apps. Look it up in the Microsoft Entra admin center in the "Properties" of the Azure AD. 
 
     # Connect to the Microsoft Graph API
     Write-Host "Connecting to Microsoft Graph"
