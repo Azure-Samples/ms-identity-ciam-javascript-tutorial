@@ -3,40 +3,40 @@ page_type: sample
 name: Sign in users and edit profile with MFA protection in a sample Node.js web application
 description: This sample demonstrates how to configure a sample web application to sign in and edit user's profile. The edit profile operation requires a customer user to complete multifactor authentication (MFA)
 languages:
- - javascript
+  - javascript
 products:
- - entra-external-id
- - msal-node
- - ms-graph
+  - entra-external-id
+  - msal-node
+  - ms-graph
 urlFragment: ms-identity-ciam-javascript-tutorial-5-sign-in-express-mfa
 extensions:
-    services: 
+  services:
     - active-directory
-    sub-service:
+  sub-service:
     - customers
-    platform: 
+  platform:
     - JavaScript
-    endpoint: 
+  endpoint:
     - AAD v2.0
-    level: 
+  level:
     - 100
-    client: 
+  client:
     - Node.js & Express web app
 ---
 
 # Sign in users and edit profile with MFA protection in a sample Node.js web application
 
-* [Overview](#overview)
-* [Usage](#usage)
-* [Contents](#contents)
-* [Prerequisites](#prerequisites)
-* [Prepare your tenant](#prepare-your-tenant)
-* [Configure sample app](#configure-sample-app)
-* [Run and test sample app](#run-and-test-sample-web-app)
-* [Troubleshooting](#troubleshooting) 
-* [About the code](#about-the-code)
-* [Contributing](#contributing)
-* [Learn More](#learn-more)
+- [Overview](#overview)
+- [Usage](#usage)
+- [Contents](#contents)
+- [Prerequisites](#prerequisites)
+- [Prepare your tenant](#prepare-your-tenant)
+- [Configure sample app](#configure-sample-app)
+- [Run and test sample app](#run-and-test-sample-web-app)
+- [Troubleshooting](#troubleshooting)
+- [About the code](#about-the-code)
+- [Contributing](#contributing)
+- [Learn More](#learn-more)
 
 ## Overview
 
@@ -44,29 +44,29 @@ This sample demonstrates how to sign in users and edit profile in Node.js. The e
 
 ## Usage
 
-|          Instruction  |                Description                 |
-|-----------------------|--------------------------------------------|
-| **Use case**          | This code sample applies to **External tenants**![Yes button](./ReadmeFiles/yes.png "Title"). If you're looking for a samples for workforce tenant, use [Tutorial: Enable a Node.js (Express) application to sign in users by using Microsoft Entra ID](https://github.com/Azure-Samples/ms-identity-node)      |
-| **Scenario**        | Sign in users and edit user profile. You acquire an ID token and an access token. Use the access token to edit user profile via Microsoft Graph API. The edit profile require a user to complete an MFA challenge.|
-|    **Add sign in to your app**        | Use the instructions in [Sign in users in a Node.js web app](https://learn.microsoft.com/entra/external-id/customers/tutorial-web-app-node-sign-in-prepare-tenant) to learn how to add sign in to your Node web app. |
-|**Product documentation** | Explore [External ID in an external tenant docs](https://learn.microsoft.com/entra/external-id/customers/) |
+| Instruction                 | Description                                                                                                                                                                                                                                                                                                |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Use case**                | This code sample applies to **External tenants**![Yes button](./ReadmeFiles/yes.png "Title"). If you're looking for a samples for workforce tenant, use [Tutorial: Enable a Node.js (Express) application to sign in users by using Microsoft Entra ID](https://github.com/Azure-Samples/ms-identity-node) |
+| **Scenario**                | Sign in users and edit user profile. You acquire an ID token and an access token. Use the access token to edit user profile via Microsoft Graph API. The edit profile require a user to complete an MFA challenge.                                                                                         |
+| **Add sign in to your app** | Use the instructions in [Sign in users in a Node.js web app](https://learn.microsoft.com/entra/external-id/customers/tutorial-web-app-node-sign-in-prepare-tenant) to learn how to add sign in to your Node web app.                                                                                       |
+| **Product documentation**   | Explore [External ID in an external tenant docs](https://learn.microsoft.com/entra/external-id/customers/)                                                                                                                                                                                                 |
 
 ## Contents
 
-| File/folder           | Description                                |
-|-----------------------|--------------------------------------------|
-| `App/app.js`          | Application entry point.                   |
-| `App/authConfig.js`   | Contains authentication parameters such as your tenant sub-domain, Application (Client) ID, app client secret and redirect URI.        |
-| `App/auth/AuthProvider.js`  | The main authentication logic resides here.    |
-|    `/App/views/`    |    This folder contains app views. This Node/Express sample app's views uses Handlebars. |
-|    `/App/routes/`    |    This folder contains app's routes. |
+| File/folder                | Description                                                                                                                     |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `App/app.js`               | Application entry point.                                                                                                        |
+| `App/authConfig.js`        | Contains authentication parameters such as your tenant sub-domain, Application (Client) ID, app client secret and redirect URI. |
+| `App/auth/AuthProvider.js` | The main authentication logic resides here.                                                                                     |
+| `/App/views/`              | This folder contains app views. This Node/Express sample app's views uses Handlebars.                                           |
+| `/App/routes/`             | This folder contains app's routes.                                                                                              |
 
 ## Prerequisites
 
-* You must install [Node.js](https://nodejs.org/en/download/) in your computer to run this sample.
-* We recommend [Visual Studio Code](https://code.visualstudio.com/download) for running and editing this sample.
-* An external tenant. If you don't already have one, [sign up for a free trial](https://learn.microsoft.com/entra/external-id/customers/how-to-create-external-tenant-portal).
-* If you'd like to use Azure services, such as hosting your app in Azure App Service, [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
+- You must install [Node.js](https://nodejs.org/en/download/) in your computer to run this sample.
+- We recommend [Visual Studio Code](https://code.visualstudio.com/download) for running and editing this sample.
+- An external tenant. If you don't already have one, [sign up for a free trial](https://learn.microsoft.com/entra/external-id/customers/how-to-create-external-tenant-portal).
+- If you'd like to use Azure services, such as hosting your app in Azure App Service, [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
 
 ## Prepare your tenant
 
@@ -78,28 +78,28 @@ You can register an app in your tenant automatically by using Microsoft Graph Po
 
 When you use Microsoft Graph PowerShell, you automatically register the applications and related objects app secrets, then modify your project config files, so you can run the app without any further action:
 
-* To register your app in the Microsoft Entra admin center use the steps in [Register the web app](https://learn.microsoft.com/entra/external-id/customers/sample-web-app-node-sign-in#register-the-web-app).
+- To register your app in the Microsoft Entra admin center use the steps in [Register the web app](https://learn.microsoft.com/entra/external-id/customers/sample-web-app-node-sign-in#register-the-web-app).
 
-* To register and configure your app automatically,
+- To register and configure your app automatically,
 
     <details>
         <summary>Expand this section</summary>
-    
-    > :warning: If you have never used **Microsoft Graph PowerShell** before, we recommend you go through the [App Creation Scripts Guide](./AppCreationScripts/AppCreationScripts.md) once to ensure that you've prepared your environment correctly for this step.
-    
-    1. Ensure that you have PowerShell 7 or later installed.
-    1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
-    1. For interactive process in PowerShell, run:
-    
-        ```PowerShell
-        cd .\AppCreationScripts\
-        .\Configure.ps1 -TenantId "[Optional] - your tenant id" -AzureEnvironmentName "[Optional] - Azure environment, defaults to 'Global'"
-        ```
-    
-    > Other ways of running the scripts are described in [App Creation Scripts guide](./AppCreationScripts/AppCreationScripts.md). The scripts also provides a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
-    
-    > :exclamation: NOTE: This sample can make use of client certificates. You can use **AppCreationScripts** to register an Microsoft Entra ID application with certificates. For more information see, [Use client certificate for authentication in your Node.js web app instead of client secrets](https://learn.microsoft.com/entra/external-id/customers/how-to-web-app-node-use-certificate).
-    
+
+  > :warning: If you have never used **Microsoft Graph PowerShell** before, we recommend you go through the [App Creation Scripts Guide](./AppCreationScripts/AppCreationScripts.md) once to ensure that you've prepared your environment correctly for this step.
+
+  1. Ensure that you have PowerShell 7 or later installed.
+  1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
+  1. For interactive process in PowerShell, run:
+
+     ```PowerShell
+     cd .\AppCreationScripts\
+     .\Configure.ps1 -TenantId "[Optional] - your tenant id" -AzureEnvironmentName "[Optional] - Azure environment, defaults to 'Global'"
+     ```
+
+  > Other ways of running the scripts are described in [App Creation Scripts guide](./AppCreationScripts/AppCreationScripts.md). The scripts also provides a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
+
+  > :exclamation: NOTE: This sample can make use of client certificates. You can use **AppCreationScripts** to register an Microsoft Entra ID application with certificates. For more information see, [Use client certificate for authentication in your Node.js web app instead of client secrets](https://learn.microsoft.com/entra/external-id/customers/how-to-web-app-node-use-certificate).
+
     </details>
 
 ### Add app client secret
@@ -108,7 +108,7 @@ To create a client secret for the registered application, use the steps in [Add 
 
 ### Create user flow
 
-To create a user flow a customer can use to sign in or sign up for an application, use the steps in [Create a user flow](https://learn.microsoft.com/entra/external-id/customers/sample-web-app-node-sign-in#create-a-user-flow) 
+To create a user flow a customer can use to sign in or sign up for an application, use the steps in [Create a user flow](https://learn.microsoft.com/entra/external-id/customers/sample-web-app-node-sign-in#create-a-user-flow)
 
 ### Associate the web application with the user flow
 
@@ -126,9 +126,9 @@ The web API you registered earlier needs to expose permissions, which a client n
 
 Use the steps in [Grant API permissions to the client web app](https://learn.microsoft.com/entra/external-id/customers/sample-web-app-node-sign-in-edit-profile#grant-api-permissions-to-the-client-web-app) to:
 
-* Grant Microsoft Graph API *User.ReadWrite* permission.
-* Grant MFA web API permission.
-* Grant admin consent
+- Grant Microsoft Graph API _User.Read_ permission.
+- Grant MFA web API permission.
+- Grant admin consent
 
 ### Create CA MFA policy
 
@@ -136,7 +136,11 @@ Your MFA web API app that you registered earlier is the resource that you protec
 
 ## Configure sample app
 
-In this section, you clone the samples app then update it with your tenant details. 
+In this section, you clone the samples app then update it with your tenant details.
+
+## Configure API sample app
+
+In this section, you clone the samples app then update it with your tenant details in `Api/authConfig.ja`
 
 ### Clone or download sample web application
 
@@ -150,7 +154,7 @@ To install app dependencies, use the steps in [Install project dependencies](htt
 
 Once you download the sample app, you need to update it so that it uses the settings of the web app that you registered. To do so, use the steps in [Configure the sample web app](https://learn.microsoft.com/entra/external-id/customers/sample-web-app-node-sign-in-edit-profile#configure-the-sample-web-app).
 
-## Run and test sample web app
+## Run and test sample web and sample api app
 
 You can now test the sample Node.js web app. You need to start the Node.js server and access it through your browser at `http://localhost:3000`. To do so, use the steps in [Run and test sample web app](https://learn.microsoft.com/entra/external-id/customers/sample-web-app-node-sign-in-edit-profile#run-and-test-web-app).
 
@@ -165,9 +169,10 @@ Were we successful in addressing your learning objective? Consider taking a mome
 <details>
 	<summary>Expand for troubleshooting info</summary>
 
-> * Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community. Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [`azure-active-directory-b2c` `node` `ms-identity` `adal` `msal-js` `msal`].
+> - Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community. Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [`azure-active-directory-b2c` `node` `ms-identity` `adal` `msal-js` `msal`].
 
 To provide feedback on or suggest features for Microsoft Entra ID or Microsoft Entra External ID, visit [User Voice page](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
+
 </details>
 
 ## About the code
@@ -176,31 +181,31 @@ To provide feedback on or suggest features for Microsoft Entra ID or Microsoft E
 
 In order to use MSAL Node, we instantiate the [ConfidentialClientApplication](https://learn.microsoft.com/javascript/api/@azure/msal-node/confidentialclientapplication?view=azure-node-latest):
 
-1. Create the configuration object, `msalConfig`,  as shown in the *App/authConfig.js* file:
+1. Create the configuration object, `msalConfig`, as shown in the _App/authConfig.js_ file:
 
-    ```javascript
-    const msalConfig = {
-        auth: {
-            clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Microsoft Entra - this value is a GUID
-            authority: process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, // Replace the placeholder with your tenant name
-            clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Microsoft Entra Admin center 
-        },
-        ...
-        ...
-    };
-    ```
+   ```javascript
+   const msalConfig = {
+       auth: {
+           clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Microsoft Entra - this value is a GUID
+           authority: process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, // Replace the placeholder with your tenant name
+           clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Microsoft Entra Admin center
+       },
+       ...
+       ...
+   };
+   ```
 
-1. Use the `msalConfig` object to instantiate the confidential client application shown in the *App/auth/AuthProvider.js file (`AuthProvider` class):  
+1. Use the `msalConfig` object to instantiate the confidential client application shown in the \*App/auth/AuthProvider.js file (`AuthProvider` class):
 
-    ```javascript
-    ...
-    ...
-    getMsalInstance(msalConfig) {
-        return new msal.ConfidentialClientApplication(msalConfig);
-    }
-    ....
-    ...
-    ```
+   ```javascript
+   ...
+   ...
+   getMsalInstance(msalConfig) {
+       return new msal.ConfidentialClientApplication(msalConfig);
+   }
+   ....
+   ...
+   ```
 
 ### Sign in
 
@@ -252,27 +257,27 @@ In the second leg of auth code flow uses, use the authorization code to request 
 
 Acquire an access token:
 
-* For calling Microsoft Graph API to fetch user details
-* The access token includes the User.MFA scopes, which requires the customer user to complete an MFA challenge. The MFA is preformed through [conditional access](https://learn.microsoft.com/entra/identity/conditional-access/overview).
+- For calling Microsoft Graph API to fetch user details
+- The access token includes the User.MFA scopes, which requires the customer user to complete an MFA challenge. The MFA is preformed through [conditional access](https://learn.microsoft.com/entra/identity/conditional-access/overview).
 
 ```javascript
 router.get(
-    '/updateProfile',
-    isAuthenticated, // check if user is authenticated
-    authProvider.getToken(["User.ReadWrite", "api://{{clientId}}/User.MFA"]), // check for mfa
-    async function (req, res, next) {
-        const graphResponse = await fetch(
-            GRAPH_ME_ENDPOINT,
-            req.session.accessToken
-          );
-        res.render("updateProfile", {
-            profile: graphResponse,
-          });
-    }
+  "/updateProfile",
+  isAuthenticated, // check if user is authenticated
+  authProvider.getToken(["User.Read", "api://{{clientId}}/User.MFA"]), // check for mfa
+  async function (req, res, next) {
+    const graphResponse = await fetch(
+      GRAPH_ME_ENDPOINT,
+      req.session.accessToken,
+    );
+    res.render("updateProfile", {
+      profile: graphResponse,
+    });
+  },
 );
 ```
 
-> :information_source:  Follow [the principle of least privilege when publishing permissions](https://learn.microsoft.com/security/zero-trust/develop/protected-api-example) for a web API.
+> :information_source: Follow [the principle of least privilege when publishing permissions](https://learn.microsoft.com/security/zero-trust/develop/protected-api-example) for a web API.
 
 ### Update user details
 
@@ -280,39 +285,40 @@ After the user updates their details, make a call to Microsoft Graph API to upda
 
 ```javascript
 router.post(
-    '/update',
-    isAuthenticated, // check if user is authenticated
-    async function (req, res, next) {
-        try {
-            if (!!req.body) {
-              let body = req.body;
-              const graphEndpoint = GRAPH_ME_ENDPOINT;
-              // API that calls for a single singed in user.
-              // more infromation for this endpoint found here
-              // https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0&tabs=http
-              fetch(graphEndpoint, req.session.accessToken, "PATCH", {
-                displayName: body.displayName,
-                givenName: body.givenName,
-                surname: body.surname,
-                mail: body.mail,
-              })
-                .then((response) => {
-                  if (response.status === 204) {
-                    return res.redirect("/");
-                  } else {
-                    next("Not updated");
-                  }
-                })
-                .catch((error) => {
-                  next(error);
-                });
+  "/update",
+  isAuthenticated, // check if user is authenticated
+  authProvider.getToken([mfaProtectedResourceScope]),
+  async function (req, res, next) {
+    try {
+      if (!!req.body) {
+        let body = req.body;
+        fetch(
+          "http://localhost:3001/updateUserInfo",
+          req.session.accessToken,
+          "POST",
+          {
+            displayName: body.displayName,
+            givenName: body.givenName,
+            surname: body.surname,
+          },
+        )
+          .then((response) => {
+            if (response.status === 204) {
+              return res.redirect("/");
             } else {
-              throw { error: "empty request" };
+              next("Not updated");
             }
-          } catch (error) {
-            next(error);
-          }
+          })
+          .catch((error) => {
+            console.log("error,", error);
+          });
+      } else {
+        throw { error: "empty request" };
+      }
+    } catch (error) {
+      next(error);
     }
+  },
 );
 ```
 
@@ -323,10 +329,10 @@ When you want to sign the user out of the application, it isn't enough to end th
 ```javascript
     async logout(req, res, next) {
         /**
-         * Construct a logout URI and redirect the user to end the session with Microsoft Entra ID. 
+         * Construct a logout URI and redirect the user to end the session with Microsoft Entra ID.
         */
         const logoutUri = `${this.config.msalConfig.auth.authority}${TENANT_SUBDOMAIN}.onmicrosoft.com/oauth2/v2.0/logout?post_logout_redirect_uri=${this.config.postLogoutRedirectUri}`;
-    
+
         req.session.destroy(() => {
             res.redirect(logoutUri);
         });
@@ -339,7 +345,7 @@ There is one web app in this sample. To deploy it to **Azure App Services**, you
 
 *Create an **Azure App Service**
 *Publish the projects to the **App Services**, and
-*Update its client(s) to call the website instead of the local environment.
+\*Update its client(s) to call the website instead of the local environment.
 
 #### Deploy your files of your web app
 
@@ -360,7 +366,8 @@ There is one web app in this sample. To deploy it to **Azure App Services**, you
 1. Update your **Redirect URIs** to to match the site URL of your Azure deployment such as `https://ciam-msal-node-webapp.azurewebsites.net/auth/redirect`.
 1. Select **Configure** to save your changes.
 
-> :warning: If your app use *in-memory* storage, **Azure App Services** will spin down your web site if it is inactive. This action empties any records in the memory. In addition, if you increase the instance count of your website, Azure Service distributes the requests among the instances. Therefore, your app's records won't be the same on each instance.
+> :warning: If your app use _in-memory_ storage, **Azure App Services** will spin down your web site if it is inactive. This action empties any records in the memory. In addition, if you increase the instance count of your website, Azure Service distributes the requests among the instances. Therefore, your app's records won't be the same on each instance.
+
 </details>
 
 ## Contributing
@@ -371,11 +378,11 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## Learn More
 
-* [Customize the default branding](https://learn.microsoft.com/entra/external-id/customers/how-to-customize-branding-customers)
-* [Language customize](https://learn.microsoft.com/entra/external-id/customers/how-to-customize-languages-customers)
-* [Building Zero Trust ready apps](https://aka.ms/ztdevsession)
-* [Initialize client applications using MSAL.js](https://learn.microsoft.com/entra/identity-platform/msal-js-initializing-client-applications)
-* [Single sign-on with MSAL.js](https://learn.microsoft.com/entra/identity-platform/msal-js-sso)
-* [Handle MSAL.js exceptions and errors](https://learn.microsoft.com/entra/msal/dotnet/advanced/exceptions/msal-error-handling?tabs=javascript)
-* [Logging in MSAL.js applications](https://learn.microsoft.com/entra/msal/dotnet/advanced/exceptions/msal-logging?tabs=javascript)
-* [Pass custom state in authentication requests using MSAL.js](https://learn.microsoft.com/entra/identity-platform/msal-js-pass-custom-state-authentication-request).
+- [Customize the default branding](https://learn.microsoft.com/entra/external-id/customers/how-to-customize-branding-customers)
+- [Language customize](https://learn.microsoft.com/entra/external-id/customers/how-to-customize-languages-customers)
+- [Building Zero Trust ready apps](https://aka.ms/ztdevsession)
+- [Initialize client applications using MSAL.js](https://learn.microsoft.com/entra/identity-platform/msal-js-initializing-client-applications)
+- [Single sign-on with MSAL.js](https://learn.microsoft.com/entra/identity-platform/msal-js-sso)
+- [Handle MSAL.js exceptions and errors](https://learn.microsoft.com/entra/msal/dotnet/advanced/exceptions/msal-error-handling?tabs=javascript)
+- [Logging in MSAL.js applications](https://learn.microsoft.com/entra/msal/dotnet/advanced/exceptions/msal-logging?tabs=javascript)
+- [Pass custom state in authentication requests using MSAL.js](https://learn.microsoft.com/entra/identity-platform/msal-js-pass-custom-state-authentication-request).

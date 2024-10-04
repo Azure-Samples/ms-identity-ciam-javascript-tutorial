@@ -1,34 +1,32 @@
 <h1>Microsoft Graph API</h1>
 <h3>/me endpoint response</h3>
 <div style="display: flex; justify-content: left;">
-<div style="size: 400px;">
-  <form id="userInfoForm" action='/users/update' method='POST'>
-    <label>Id :</label>
-    <label> {{profile.id}}</label>
-    <br/>
-    <label>Email :</label>
-    <label> {{profile.mail}}</label>
-    <br/>
-    <label for="userName" >Display Name :</label>
-    <input type="text" id="displayName" name="displayName" disabled value="{{profile.displayName}}" />
-    <br />
-    <label for="userName">Given Name :</label>
-    <input type="text" id="givenName" name="givenName" value="{{profile.givenName}}" />
-    <br />
+    <div style="size: 400px;">
+        <label>Id :</label>
+        <label> {{profile.id}}</label>
+        <br />
+        <label for="email">Email :</label>
+        <label> {{profile.mail}}</label>
+        <br />
+        <label for="userName">Display Name :</label>
+        <label> {{profile.displayName}}</label>
+        <br />
+        <label for="userName">Given Name :</label>
+        <label> {{profile.givenName}}</label>
+        <br />
 
-    <label for="userSurname">Surname :</label>
-    <input type="text" id="surname" name="surname" value="{{profile.surname}}" />
-    <br />
-
-    <button type="submit" id="button">Save</button>
-  </form>
+        <label for="userSurname">Surname :</label>
+        <label> {{profile.surname}}</label>
+        <br />
+    </div>
+    <div>
+        <br />
+        <br />
+        <a href="/users/updateProfile">
+            <button>Edit Profile</button>
+        </a>
+    </div>
 </div>
-<div>
-  <br>
-  <br>
-    <a href="/users/updateProfile">
-    <button>Edit</button>
-    </a>
- </div>
-</div>
+<br />
+<br />
 <a href="/">Go back</a>
