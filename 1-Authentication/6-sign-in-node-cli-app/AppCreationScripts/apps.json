@@ -1,6 +1,6 @@
 {
     "Sample": {
-        "Title": "A Node.js console application using MSAL Node to authenticate users against Azure AD for Customers",
+        "Title": "A Node.js console application using MSAL Node to authenticate users against Microsoft Entra External ID",
         "Client": "NodeConsoleApp",
         "Level": 100
     },

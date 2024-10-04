@@ -1,6 +1,14 @@
 // Create the main myMSALObj instance
 // configuration parameters are located at authConfig.js
-const myMSALObj = new msal.PublicClientApplication(msalConfig);
+let myMSALObj;
+
+msal.PublicClientApplication.createPublicClientApplication(msalConfig)
+    .then((obj) => {
+        myMSALObj = obj;
+    })
+    .catch((error) => {
+        console.error("Error creating MSAL PublicClientApplication:", error);
+    });
 
 let username = "";
 
@@ -64,7 +72,7 @@ function signIn() {
      * You can pass a custom request object below. This will override the initial configuration. For more information, visit:
      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/request-response-object.md#request
      */
-
+    loginRequest.redirectUri = "/redirect";
     myMSALObj.loginPopup(loginRequest)
         .then(handleResponse)
         .catch(error => {
@@ -81,7 +89,7 @@ function signOut() {
 
     // Choose which account to logout from by passing a username.
     const logoutRequest = {
-        account: myMSALObj.getAccountByUsername(username),
+        account: myMSALObj.getAccount({ username: username }),
         mainWindowRedirectUri: '/signout'
     };
 

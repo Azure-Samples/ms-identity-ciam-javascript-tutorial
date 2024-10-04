@@ -1,12 +1,12 @@
 {
     "Sample": {
-        "Title": "React single-page application using MSAL React to authentication users against Customer Identity Access Management (CIAM)",
+        "Title": "React single-page application using MSAL React to authentication users against Microsoft Entra External ID",
         "Level": 100,
         "Client": "React SPA",
         "RepositoryUrl": "ms-identity-javascript-react-tutorial",
         "Languages": ["javascript"],
         "Endpoint": "AAD v2.0",
-        "Description": "React single-page application using MSAL React to authentication users against Customer Identity Access Management (CIAM)",
+        "Description": "React single-page application using MSAL React to authentication users against Microsoft Entra External ID",
         "products": ["azure-active-directory", "msal-js", "msal-react"],
         "Provider": "CIAM",
         "Platform": "javascript"

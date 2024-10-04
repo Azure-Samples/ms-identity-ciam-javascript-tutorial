@@ -7,7 +7,7 @@ const { LogLevel } = require('@azure/msal-node');
  */
 const msalConfig = {
     auth: {
-        clientId: 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+        clientId: 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Microsoft Entra admin center - this value is a GUID
         authority: `https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/`, // Replace the placeholder with your tenant subdomain
     },
     system: {

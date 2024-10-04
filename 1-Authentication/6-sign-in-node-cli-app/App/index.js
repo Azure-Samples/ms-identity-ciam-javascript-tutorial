@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License.
  */
-const { PublicClientApplication, InteractionRequiredAuthError } = require('@azure/msal-node');
-const open = require('open');
-const { msalConfig, loginRequest } = require('./authConfig');
+import { PublicClientApplication, InteractionRequiredAuthError } from '@azure/msal-node';
+import open from 'open';
+import { msalConfig, loginRequest } from './authConfig.js';
 
 // Before running the sample, you will need to replace the values in src/authConfig.js
 

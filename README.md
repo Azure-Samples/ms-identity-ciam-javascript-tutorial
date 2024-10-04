@@ -8,13 +8,13 @@ products:
 - msal-node
 - msal-react
 - entra-external-id
-description: "Tutorial: Enable your JavaScript applications to sign-in users and call APIs with Azure AD for Customers"
+description: "Tutorial: Enable your JavaScript applications to sign-in users and call APIs with Microsoft Entra External ID"
 urlFragment: "ms-identity-ciam-javascript-tutorial"
 ---
 
-# Tutorial: Enable your JavaScript application to sign-in users and call APIs with Azure AD for Customers
+# Tutorial: Enable your JavaScript application to sign-in users and call APIs with Microsoft Entra External ID
 
-This tutorial aims to take you through the fundamentals of modern authentication with Azure AD Consumer Identity and Access Management (CIAM), using the [Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js).
+This tutorial aims to take you through the fundamentals of modern authentication with Microsoft Entra External ID, using the [Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 ## Prerequisites
 
@@ -25,14 +25,14 @@ This tutorial aims to take you through the fundamentals of modern authentication
 Please refer to each sample's README for sample-specific prerequisites. 
 
 
-The following tables are a summary of code samples alongside links to tutorials on how to integrate various app types with Azure AD for customers:
+The following tables are a summary of code samples alongside links to tutorials on how to integrate various app types with Microsoft Entra External ID:
 
 - The **Explore and run code sample guide** uses a sample app to show you how to add identity and access management (IAM) capabilities to your applications using Microsoft Entra External ID for customers.
 
 - The **Build and integrate tutorial** offers detailed guidance on how to build an app from the ground up, walking you through the packages and code needed to add IAM support to both new or existing applications.
 
 
-### Chapter 1: Sign-in a user to your application with Azure AD for customers
+### Chapter 1: Sign-in a user to your application with Microsoft Entra External ID
 
 
 Language/platform + app type |Scenario| GitHub code sample | Explore and run code sample | Build and integrate tutorial |
@@ -47,7 +47,7 @@ Node.js & Express web app|![Sign in users with a Node.js & Express web app](./1-
 
 ### Chapter 2: Protect an API and call the API from your client app
 
-The following table summarizes resources with guidance on how to protect your web API with the **Azure AD for Customers**.  You then use a client application to sign-in a user, acquire an **Access Token** for your app to call the protected web API.
+The following table summarizes resources with guidance on how to protect your web API with the **Microsoft Entra External ID**.  You then use a client application to sign-in a user, acquire an **Access Token** for your app to call the protected web API.
 
 
 Language/platform + app type |Scenario| GitHub code sample | Explore and run code sample | Build and integrate tutorial |
@@ -59,7 +59,7 @@ React SPA|![Sign in users and call an API using a React SPA](./2-Authorization/1
 Angular SPA|![Sign in users and call an API using an Angular SPA](./2-Authorization/2-call-api-angular/ReadmeFiles/topology.png) | [**Sign in users and call an API using an Angular SPA**](./2-Authorization/2-call-api-angular/README.md) | --- |--- |
 
 
-If you're looking for more samples on different authentication and authorization scenarios, see [Samples and guides for customer identity and access management (CIAM) in Azure Active Directory](https://learn.microsoft.com/azure/active-directory/external-identities/customers/samples-ciam-all?tabs=apptype)
+If you're looking for more samples on different authentication and authorization scenarios, see [Samples for External ID developers](https://learn.microsoft.com/azure/active-directory/external-identities/customers/samples-ciam-all?tabs=apptype)
 
 ## More information
 
