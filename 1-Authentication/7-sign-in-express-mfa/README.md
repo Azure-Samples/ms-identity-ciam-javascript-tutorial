@@ -63,10 +63,13 @@ This sample demonstrates how to sign in users and edit profile in Node.js. The e
 
 ## Prerequisites
 
-- You must install [Node.js](https://nodejs.org/en/download/) in your computer to run this sample.
-- We recommend [Visual Studio Code](https://code.visualstudio.com/download) for running and editing this sample.
-- An external tenant. If you don't already have one, [sign up for a free trial](https://learn.microsoft.com/entra/external-id/customers/how-to-create-external-tenant-portal).
-- If you'd like to use Azure services, such as hosting your app in Azure App Service, [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
+* You must install [Node.js](https://nodejs.org/en/download/) in your computer to run this sample.
+* We recommend [Visual Studio Code](https://code.visualstudio.com/download) for running and editing this sample.
+* An external tenant. To create one, choose from the following methods:
+    * (Recommended) Use the [Microsoft Entra External ID extension](https://aka.ms/ciamvscode/readme/marketplace) to set up an external tenant directly in Visual Studio Code.
+    * [Create a new external tenant](https://learn.microsoft.com/entra/external-id/customers/how-to-create-external-tenant-portal) in the Microsoft Entra admin center.
+* If you'd like to use Azure services, such as hosting your app in Azure App Service, [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
+
 
 ## Prepare your tenant
 
