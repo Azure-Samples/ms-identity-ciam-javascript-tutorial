@@ -23,6 +23,7 @@
     "@azure/msal-angular": "^3.0.20",
     "@azure/msal-browser": "^3.17.0",
     "rxjs": "~7.8.1",
+    "spa": "file:",
     "tslib": "^2.6.3",
     "zone.js": "~0.14.7"
   },

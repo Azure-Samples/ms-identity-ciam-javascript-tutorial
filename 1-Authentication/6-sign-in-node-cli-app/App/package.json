@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "CLI sample for msal-node public client application using using auth code flow with PKCE to sign-in users on Microsoft Entra External ID",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@azure/msal-node": "^2.9.2",
+    "msal-node-auth-code-cli-app": "file:",
     "open": "^10.1.0"
   }
 }
