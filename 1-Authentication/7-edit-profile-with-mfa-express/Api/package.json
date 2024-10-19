@@ -15,6 +15,7 @@
     "express": "^4.21.0",
     "express-session": "^1.18.0",
     "http-errors": "^2.0.0",
+    "msal-node-auth-code": "file:",
     "uuid": "^10.0.0"
   }
 }
