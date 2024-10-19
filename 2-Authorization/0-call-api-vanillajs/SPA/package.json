@@ -12,7 +12,7 @@
     "dependencies": {
         "@azure/msal-browser": "^3.17.0",
         "ciam-sign-in-javascript": "file:",
-        "express": "^4.19.2",
+        "express": "^4.21.1",
         "morgan": "^1.10.0"
     },
     "devDependencies": {
