@@ -36,10 +36,10 @@ router.get(
       GRAPH_ME_ENDPOINT,
       req.session.accessToken,
     );
-    if (!graphResponse.ok) {
-      return res
-        .status(graphResponse.status)
-        .send("Failed to fetch profile data");
+    if (!graphResponse.id) {
+      return res 
+        .status(501) 
+        .send("Failed to fetch profile data"); 
     }
     res.render("gatedUpdateProfile", {
       profile: graphResponse,
@@ -59,10 +59,10 @@ router.get(
       GRAPH_ME_ENDPOINT,
       req.session.accessToken,
     );
-    if (!graphResponse.ok) {
-      return res
-        .status(graphResponse.status)
-        .send("Failed to fetch profile data");
+    if (!graphResponse.id) {
+      return res 
+        .status(501) 
+        .send("Failed to fetch profile data"); 
     }
     res.render("updateProfile", {
       profile: graphResponse,
