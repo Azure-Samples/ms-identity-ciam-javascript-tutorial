@@ -25,7 +25,6 @@ const msalConfig = {
       "Enter_the_Edit_Profile_Service_Application_Id_Here", // 'Application (client) ID' of the Edit_Profile Service App registration in Microsoft Entra admin center - this value is a GUID
     authority:
       process.env.AUTHORITY || `https://${TENANT_SUBDOMAIN}.ciamlogin.com/`, // Replace the placeholder with your external tenant name
-    clientSecret: process.env.CLIENT_SECRET || "Enter_the_Client_Secret_Here", // Client secret generated from the app registration in Microsoft Entra admin center
   },
   system: {
     loggerOptions: {
