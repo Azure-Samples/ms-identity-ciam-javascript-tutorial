@@ -5,7 +5,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}\\.vscode\\vsCodeLaunchAngularSample.js",
+      "program": "${workspaceFolder}\\.vscode\\vsCodeLaunchVanillaJsSample.js",
       "args": [
         "${input:taskDelay}"
       ]
