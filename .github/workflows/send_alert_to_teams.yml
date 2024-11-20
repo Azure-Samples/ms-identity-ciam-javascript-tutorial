@@ -1,0 +1,18 @@
+name: Send Dependabot Alerts to Teams
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "8 15 * * *"
+
+jobs:
+  send-alerts-to-teams:
+    name: Send Dependabot Alerts to Teams
+    uses: Azure-Samples/send-dependabot-alerts-to-teams/.github/workflows/reusable-workflow.yml@main
+    secrets: inherit
