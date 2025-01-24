@@ -85,7 +85,7 @@ or download and extract the repository *.zip* file.
 ### Step 2: Install project dependencies
 
 ```console
-    cd 1-Authorization\0-sign-in-vanillajs\App
+    cd 1-Authentication\0-sign-in-vanillajs\App
     npm install
 ```
 
