@@ -20,3 +20,7 @@ footer {
   text-align: center;
   flex: 1 1 auto;
 }
+
+.container {
+  padding-bottom: 72px; /* prevent fixed footer from overlapping page content */
+}

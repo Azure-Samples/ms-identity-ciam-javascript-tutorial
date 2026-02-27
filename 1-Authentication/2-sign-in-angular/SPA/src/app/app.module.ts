@@ -77,6 +77,7 @@ export function MsalGuardConfigurationFactory(): MsalGuardConfiguration {
     MsalModule,
   ],
   providers: [
+    // MSAL Interceptor to add scopes to outgoing requests
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MsalInterceptor,

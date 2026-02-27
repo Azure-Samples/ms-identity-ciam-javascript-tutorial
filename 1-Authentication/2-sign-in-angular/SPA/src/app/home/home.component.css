@@ -1,4 +1,5 @@
-#table-container {
+#table-container,
+#access-table-container {
   height: '100vh';
   overflow: auto;
 }
@@ -14,6 +15,29 @@ table {
 
 .mat-cell {
   padding: 8px 8px 8px 0;
+}
+
+.mat-column-value {
+  word-break: break-all;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* Sensitive claim redaction */
+.redacted {
+  background-color: #111;
+  color: #111;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: line-through;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.redacted:hover {
+  background-color: transparent;
+  color: inherit;
+  text-decoration: none;
 }
 
 p {

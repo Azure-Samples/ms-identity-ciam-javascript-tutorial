@@ -16,6 +16,7 @@ const routes: Routes = [
     path: 'guarded',
     component: GuardedComponent,
     canActivate: [
+      //here Msal Guard
       MsalGuard
     ]
   },

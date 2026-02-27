@@ -18,8 +18,8 @@ import {
  */
 export const msalConfig: Configuration = {
   auth: {
-    clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
-    authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace the placeholder with your tenant subdomain
+    clientId: '675bdfbe-4b0b-480d-802d-d3d6405dda47', // This is the ONLY mandatory field that you need to supply.
+    authority: 'https://login.microsoftonline.com/b6078821-12c7-4949-9827-52da66c836c7', // Replace the placeholder with your tenant subdomain
     redirectUri: '/', // Points to window.location.origin by default. You must register this URI on Microsoft Entra admin center/App Registration.
     postLogoutRedirectUri: '/', // Points to window.location.origin by default.
   },
@@ -44,5 +44,12 @@ export const msalConfig: Configuration = {
  * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
  */
 export const loginRequest = {
-  scopes: [],
+  scopes: [
+    // 'openid',
+    // 'offline_access',
+    'api://675bdfbe-4b0b-480d-802d-d3d6405dda47/.default',
+  ],
 };
+
+// Print configured scopes for debugging/verification
+console.log('loginRequest scopes:', loginRequest.scopes);
