@@ -1,0 +1,26 @@
+<h1>Microsoft Graph API</h1>
+<h3>/me endpoint response</h3>
+<div>
+  <form id="userInfoForm" action='/users/update' method='POST'>
+    <label>Id :</label>
+    <label> {{profile.id}}</label>
+    <br/>
+    <label for="userName">Display Name :</label>
+    <input type="text" id="displayName" name="displayName" value="{{profile.displayName}}" />
+    <br />
+    <label for="userName">Given Name :</label>
+    <input type="text" id="givenName" name="givenName" value="{{profile.givenName}}" />
+    <br />
+
+    <label for="userSurname">Surname :</label>
+    <input type="text" id="surname" name="surname" value="{{profile.surname}}" />
+    <br />
+
+    <label for="userEmail">Email :</label>
+    <input type="text" id="mail" name="mail" value="{{profile.mail}}" readonly />
+    <br />
+
+    <button type="submit" id="button">Save</button>
+  </form>
+</div>
+<a href="/">Go back</a>
